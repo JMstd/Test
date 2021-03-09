@@ -472,6 +472,7 @@ function onTrackballUpdate(trackState) {
 function updateCompass(angle, tilt) {
 	$('#compassCanvas').attr('width', 100);
 	$('#compassCanvas').attr('height', 100);
+	$('#compassCanvas').css('border-radius', 50);
 	var canv = document.getElementById("compassCanvas");
 	var ctx = canv.getContext("2d");
 	var hh = canv.height;
@@ -488,10 +489,10 @@ function updateCompass(angle, tilt) {
 	ctx.rotate(angle);
 
 	ctx.beginPath();
-	ctx.arc(0, 0, 45, 0, 2 * Math.PI, false);
-	ctx.lineWidth = 4;
-	ctx.strokeStyle = '#443377';
-	ctx.stroke();
+//	ctx.arc(0, 0, 45, 0, 2 * Math.PI, false);  // fondamentalmente mi toglie il cerchio dentro
+	ctx.lineWidth = 1;   // a me personalmente piace a 1 o 0 anziché 4
+//	ctx.strokeStyle = '#443377';
+//	ctx.stroke();
 
 	ctx.font = "28px Verdana";
 	ctx.strokeStyle = '#ff4444';
