@@ -45,7 +45,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	text-align: center;
 }
 
-.move_{
+/*.move_{
 	width: 40px;
 	height: 40px;
 	position: fixed;
@@ -56,7 +56,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	border:2px solid #f8f8f8; 
 	border-radius:10px;
 	box-shadow:1px 1px 10px #f8f8f8;
-	/*Questa parte va magari ancora migliorata, controllare se rispetta del tutto quello che viene fatto nel panel_css di 3dhop*/
+}*/
+
+.move_ {
+	width: 50px !important;
+	height: 50px !important;
 }
 
 .cntr{/*
