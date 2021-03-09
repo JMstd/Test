@@ -91,31 +91,34 @@
 						<tbody>
 							<tr>
 								<td></td>
-								<!---padding: 20px;--->
-								<td><img onclick="presenter.animateToTrackballPosition([180.0, 0.0, 0.0, 0.12, 0.0, 2.50]);"
+								<!---padding: 20px;  *******  [180.0, 0.0, 0.0, 0.12, 0.0, 3.0] ---> <!---perché c'è il 0.12 ?? lo fa scendere-->
+								<td><img onclick="presenter.animateToTrackballPosition([180.0, 0.0, 0.0, 0.12, 0.0, 1.10]);"
 										class="" id="Nord" title="Nord" src="Nord_ita.png" />
 								</td>
 								<td></td>
 							</tr>
 							<tr>
-								<!--- border-radius: 8px;"---->
+								<!--- border-radius: 8px;"    *******  [-90.0, 0.0, 0.0, 0.12, 0.0, 3.0] ---->
 								<td><img style="cursor:hand;"
-										onclick="presenter.animateToTrackballPosition([-90.0, 0.0, 0.0, 0.12, 0.0, 3.0]);"
+										onclick="presenter.animateToTrackballPosition([-90.0, 0.0, 0.0, 0.12, 0.0, 1.10]);"
 										class="" id="West" title="West" src="Ovest_ita.png" />
 								</td>
+								<!-----  **************** [0.0, 90.0, -0.1, 0.0, -0.066, 2.0]-->
 								<td><img style="cursor:hand;"
-										onclick="presenter.animateToTrackballPosition([0.0, 90.0, -0.1, 0.0, -0.066, 2.0]);"
+										onclick="presenter.animateToTrackballPosition([0.0, 90.0, -0.1, 0.0, -0.066, 1.0]);"
 										class="" id="Top" title="Top" src="TopB.png" />
 								</td>
+								<!-----  **************** [90.0, 0.0, 0.0, 0.12, 0.0, 3.0]-->
 								<td><img style="cursor:hand;"
-										onclick="presenter.animateToTrackballPosition([90.0, 0.0, 0.0, 0.12, 0.0, 3.0]);"
+										onclick="presenter.animateToTrackballPosition([90.0, 0.0, 0.0, 0.12, 0.0, 1.10]);"
 										class="" id="Est" title="Est" src="Est_ita.png" />
 								</td>
 							</tr>
 							<tr>
 								<td></td>
+								<!-----  **************** [0.0, 0.0, 0.0, 0.12, 0.0, 3.0]-->
 								<td><img style="cursor:hand;"
-										onclick="presenter.animateToTrackballPosition([0.0, 0.0, 0.0, 0.12, 0.0, 3.0]);"
+										onclick="presenter.animateToTrackballPosition([0.0, 0.0, 0.0, 0.12, 0.0, 1.10]);"
 										class="" id="South" title="South" src="Sud_ita.png" />
 								</td>
 								<td></td>
