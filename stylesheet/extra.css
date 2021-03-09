@@ -19,38 +19,29 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /*versione temporanea, di prova, ma per ora funziona*/
-/*
-body {
-	position:fixed; height:100%; width:100%; left:0; top:0;
-}
-*/
 
 #lightcontroller { 
-	position				:absolute; 
-	z-index					:1;
-	left					:-250; 
-	bottom					:325; 
+	position: absolute; 
+	z-index: 1;
+	left: -250;
+	bottom: 325; 
+	right: auto;
 }
-
-	/*
-.frame_buttons { 
-	position				:absolute; 
-	z-index					:2;
-	cursor					:pointer;
-	}*/
-/*
-.fb {
-  display: inline-block;
-}
-*/
-/*
-#lightcontroller_button { 
-	bottom					: 132.5; 
-	left					: 0; 
-}
-*/
 
 /****************start move_control**********************/
+
+#mvc_table /*tbody tr td*/ {
+/*	border: 1px ridge black;*/
+	text-align: center;
+}
+
+#mvc_table img {
+	margin: 0px;
+}
+
+#compassC {
+	text-align: center;
+}
 
 .move_{
 	width: 40px;
@@ -66,29 +57,34 @@ body {
 	/*Questa parte va magari ancora migliorata, controllare se rispetta del tutto quello che viene fatto nel panel_css di 3dhop*/
 }
 
-.cntr{
+.cntr{/*
 	margin-right: 5%;
 	margin-top: 20%;
+	*/
 }
 
 .up{
 	transform: rotate(270deg);
-	margin-right: 5%;
+	/*margin-right: 5%;
 	margin-top: 16.5%;
+	*/
 }
 .dawn{
 	transform: rotate(90deg);
-	margin-right: 5%;
+	/*margin-right: 5%;
 	margin-top: 23.5%;
+	*/
 }
 .right{
-	margin-top: 20%;
+	/*margin-top: 20%;
 	margin-right: 1.5%;
+	*/
 }
 .left{
 	transform: rotate(180deg);
-	margin-top: 20%;
+	/*margin-top: 20%;
 	margin-right: 8.5%;
+	*/
 }
 
 /****************end move_control**********************/

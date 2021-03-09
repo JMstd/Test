@@ -1,17 +1,23 @@
 <!DOCTYPE>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
 <head>
 	<!--<meta content="charset=UTF-8"/> -->
 	<!-- ho dovuto aggiungere le due righe qui sotto per togliere il messaggio di errore sulla codifica di html -->
 	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 	<!--questa seconda linea non e' essenziale-->
 	<meta content="utf-8" http-equiv="encoding">
-	
+
 	<title>3DHOP - 3D Heritage Online Presenter</title>
-	<style type="text/css">a:hover {color:gray; cursor:pointer;}</style>
+	<style type="text/css">
+		a:hover {
+			color: gray;
+			cursor: pointer;
+		}
+	</style>
 	<!--STYLESHEET-->
-	<link type="text/css" rel="stylesheet" href="stylesheet/3dhop.css"/>  
-	<link type="text/css" rel="stylesheet" href="stylesheet/extra.css"/>
+	<link type="text/css" rel="stylesheet" href="stylesheet/3dhop.css" />
+	<link type="text/css" rel="stylesheet" href="stylesheet/extra.css" />
 	<!--SPIDERGL-->
 	<script type="text/javascript" src="js/spidergl.js"></script>
 	<!--JQUERY-->
@@ -29,11 +35,9 @@
 	<!--UTILITY-->
 	<script type="text/javascript" src="js/init.js"></script>
 	<!--HTML2CANVAS-->
-<!--		<script type="text/javascript" src="js/html2canvas.js"></script>
-		<script type="text/javascript" src="js/html2canvas.min.js"></script>
-	-->
 	<script type="text/javascript" src="R1.js"></script>
 </head>
+
 <body>
 
 	<div id="3dhop" class="tdhop" onmousedown="if (event.preventDefault) event.preventDefault()">
@@ -41,100 +45,142 @@
 		<div id="tdhlg"></div>
 		<!-- Questa parte gestisce i vari tolbar, al momento io la lascerei cosi. rimane all'interno dello spazio del visualizzarote, poi si puo vedere se metterli in una zona esterna -->
 		<div id="toolbar">
-			<img id="zoomin"       title="Zoom In"               src="skins/dark/zoomin.png"          /><br/>
-			<img id="zoomout"      title="Zoom Out"              src="skins/dark/zoomout.png"         /><br/>
-			<img id="lighting_off" title="Enable Lighting"       src="skins/dark/lighting_off.png"    style="position:absolute; visibility:hidden;"/>
-			<img id="lighting"     title="Disable Lighting"      src="skins/dark/lighting.png"        /><br/>
-			<img id="light_off"     title="Disable Light Control" src="skins/dark/lightcontrol_on.png" style="position:absolute; visibility:hidden;"/>
-			<img id="light"        title="Enable Light Control"  src="skins/dark/lightcontrol.png"    /><br/>
+			<img id="zoomin" title="Zoom In" src="skins/dark/zoomin.png" /><br />
+			<img id="zoomout" title="Zoom Out" src="skins/dark/zoomout.png" /><br />
+			<img id="lighting_off" title="Enable Lighting" src="skins/dark/lighting_off.png"
+				style="position:absolute; visibility:hidden;" />
+			<img id="lighting" title="Disable Lighting" src="skins/dark/lighting.png" /><br />
+			<img id="light_off" title="Disable Light Control" src="skins/dark/lightcontrol_on.png"
+				style="position:absolute; visibility:hidden;" />
+			<img id="light" title="Enable Light Control" src="skins/dark/lightcontrol.png" /><br />
 			<!--COLOR-->
-			<img id="color_on"	title="Enable Color"			src="skins/dark/color_on.png" style="position:absolute; visibility:hidden;"/>
-			<img id="color"		title="Disable Color"			src="skins/dark/color.png"/><br/>
+			<img id="color_on" title="Enable Color" src="skins/dark/color_on.png"
+				style="position:absolute; visibility:hidden;" />
+			<img id="color" title="Disable Color" src="skins/dark/color.png" /><br />
 			<!--COLOR-->
-			<img id="perspective"  title="Perspective Camera"    src="skins/dark/perspective.png"     style="position:absolute; visibility:hidden;"/>
-			<img id="orthographic" title="Orthographic Camera"   src="skins/dark/orthographic.png"    /><br/>
-			<img id="hotspot_on" title="Hide Hotspots"         src="skins/dark/pin_on.png"          style="position:absolute; visibility:hidden;"/>
-			<img id="hotspot"    title="Show Hotspots"         src="skins/dark/pin.png"             /><br/>
-			<img id="screenshot" title="Save Screenshot"       src="skins/dark/screenshot.png"   /><br/>
-			<img id="measure_on" title="Disable Measure Tool"  src="skins/dark/measure_on.png"      style="position:absolute; visibility:hidden;"/>
-			<img id="measure"    title="Enable Measure Tool"   src="skins/dark/measure.png"         /><br/>
-			<img id="full_on"      title="Exit Full Screen"      src="skins/dark/full_on.png"         style="position:absolute; visibility:hidden;"/>
-			<img id="full"         title="Full Screen"           src="skins/dark/full.png"            /><br/>
+			<img id="perspective" title="Perspective Camera" src="skins/dark/perspective.png"
+				style="position:absolute; visibility:hidden;" />
+			<img id="orthographic" title="Orthographic Camera" src="skins/dark/orthographic.png" /><br />
+			<img id="hotspot_on" title="Hide Hotspots" src="skins/dark/pin_on.png"
+				style="position:absolute; visibility:hidden;" />
+			<img id="hotspot" title="Show Hotspots" src="skins/dark/pin.png" /><br />
+			<img id="screenshot" title="Save Screenshot" src="skins/dark/screenshot.png" /><br />
+			<img id="measure_on" title="Disable Measure Tool" src="skins/dark/measure_on.png"
+				style="position:absolute; visibility:hidden;" />
+			<img id="measure" title="Enable Measure Tool" src="skins/dark/measure.png" /><br />
+			<img id="full_on" title="Exit Full Screen" src="skins/dark/full_on.png"
+				style="position:absolute; visibility:hidden;" />
+			<img id="full" title="Full Screen" src="skins/dark/full.png" /><br />
 
-			<div id="movement_control" style="position: relative;float: right;">
-				<img class= "move_ cntr"    id="home"       title="Home"                    src="skins/dark/home.png"            /><br/>
-				<img class= "move_ dawn"	id="move_dawn"	title="Move Dawn"               src="arrows.png" />
-				<img class= "move_ up"		id="move_up"	title="Move Up"                 src="arrows.png" />
-				<img class= "move_ left"	id="move_left"	title="Move Leftt"              src="arrows.png" />
-				<img class ="move_ right"	id="move_right"	title="Move Right"              src="arrows.png" />	
+			<div id="right_tolbar" style="position: fixed; right:5%; top:2%; z-index:2;">
+
+				<!--COMPASS-->
+				<br>
+				<div
+					style="background-color:rgba(150, 150, 150, 0.8); border-radius: 5px; font-family:verdana; font-size:15px; padding:3px;">
+						<div id = "compassC">
+							<canvas id="compassCanvas"
+								style="background:#555555; width:100; height:100; border:1px solid #000000;" onclick="
+							var currpos = presenter.getTrackballPosition();
+							currpos[0] = 0.0;
+							presenter.animateToTrackballPosition(currpos);
+							" width="100" height="100">
+							</canvas>
+						</div>
+						<table  id="mvc_table" border="1">
+							<tbody>
+								<tr>
+									<td></td><!---padding: 20px;--->
+									<td ><button style="cursor:hand; border-radius: 8px;"
+											onclick="presenter.animateToTrackballPosition([180.0, 0.0, 0.0, 0.12, 0.0, 3.0]);"><img class="" id="North" title="North" src="North.png" /></button>
+									</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td><button style="cursor:hand; border-radius: 8px;"
+											onclick="presenter.animateToTrackballPosition([-90.0, 0.0, 0.0, 0.12, 0.0, 3.0]);"><img class="" id="West" title="West" src="West.png" /></button>
+									</td>
+									<td><button style="cursor:hand;"
+											onclick="presenter.animateToTrackballPosition([0.0, 90.0, -0.1, 0.0, -0.066, 2.0]);"><img class="" id="Top" title="Top" src="TopB.png" /></button>
+									</td>
+									<td><button style="cursor:hand; border-radius: 8px;"
+											onclick="presenter.animateToTrackballPosition([90.0, 0.0, 0.0, 0.12, 0.0, 3.0]);"><img class="" id="Est" title="Est" src="Est.png" /></button>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td><button style="cursor:hand; border-radius: 8px;"
+											onclick="presenter.animateToTrackballPosition([0.0, 0.0, 0.0, 0.12, 0.0, 3.0]);"><img class="" id="South" title="South" src="South.png" /></button>
+									</td>
+									<td></td>
+								</tr>
+								<!----*****************inizio gestione MOVE ******************-->
+								<tr>
+									<td></td>
+									<td>
+											<img class="up" id="move_up" title="Move Up" src="arrow.png" />
+									</td>
+									<td></td>
+								</tr>
+								<tr>
+
+									<td><img class="left" id="move_left" title="Move Leftt" src="arrow.png" /></td>
+
+									<td>
+										<button style="cursor:hand;">
+											<img class="" id="home" title="Home" src="skins/dark/home.png" />
+										</button>
+									</td>
+
+									<td><img class="right" id="move_right" title="Move Right" src="arrow.png" />
+									</td>
+
+								</tr>
+								<tr>
+									<td></td>
+									<td>
+											<img class="dawn" id="move_dawn" title="Move Dawn" src="arrow.png" />
+									</td>
+									<td></td>
+								</tr>
+								<!----*****************fine gestione MOVE ******************-->
+
+							</tbody>
+							<!--	<div id="movement_control" style="position: relative;float: right;">
+								<img class="move_ cntr" id="home" title="Home" src="skins/dark/home.png" /><br />
+								<img class="move_ dawn" id="move_dawn" title="Move Dawn" src="arrow.png" />
+								<img class="move_ up" id="move_up" title="Move Up" src="arrow.png" />
+								<img class="move_ left" id="move_left" title="Move Leftt" src="arrow.png" />
+								<img class="move_ right" id="move_right" title="Move Right" src="arrow.png" />
+							</div>
+						-->
+						</table>
+
+				</div>
+				<!--COMPASS-->
 			</div>
+
+
 		</div>
 
 		<!---***************************************************************************************************************************************-->
-		<div style="position:absolute; right:10px; top:10px; z-index:2;">
 
-			<!--COMPASS-->
-			<br>
-			<div style="background-color:rgba(150, 150, 150, 0.8); border-radius: 5px; font-family:verdana; font-size:15px; padding:3px;">
-				<center>
-					<div>
-						<canvas id="compassCanvas" style="background:#555555; width:100; height:100; border:1px solid #000000;" onclick="
-						var currpos = presenter.getTrackballPosition();
-						currpos[0] = 0.0;
-						presenter.animateToTrackballPosition(currpos);
-						" width="100" height="100">
-					</canvas></div> 		
-					<table border="1">
-						<tbody><tr><td></td><td align="center"><button style="cursor:hand;" onclick="presenter.animateToTrackballPosition([180.0, 0.0, 0.0, 0.12, 0.0, 3.0]);">North</button></td><td></td></tr>
-							<tr><td align="center"><button style="cursor:hand;" onclick="presenter.animateToTrackballPosition([-90.0, 0.0, 0.0, 0.12, 0.0, 3.0]);">East</button></td><td align="center"><button style="cursor:hand;" onclick="presenter.animateToTrackballPosition([0.0, 90.0, -0.1, 0.0, -0.066, 2.0]);">Top</button></td><td align="center"><button style="cursor:hand;" onclick="presenter.animateToTrackballPosition([90.0, 0.0, 0.0, 0.12, 0.0, 3.0]);">West</button></td></tr>
-							<tr><td></td><td align="center"><button style="cursor:hand;" onclick="presenter.animateToTrackballPosition([0.0, 0.0, 0.0, 0.12, 0.0, 3.0]);">South</button></td><td></td></tr> 
-						</tbody></table>
-						<input type="checkbox" style="cursor:hand;" onclick="presenter.toggleCameraType();">
-						Orthographic View
+		<div id="lightcontroller">
+			<canvas id="lightcontroller_canvas" width="125" height="125" />
+		</div>
 
-
-					</center>
-				</div>
-				<!--COMPASS-->
-
-				<!--PREDEFINED VIEWS-- >
-				</br>
-				<div style="background-color:rgba(150, 150, 150, 0.8); border-radius: 5px; font-family:verdana; font-size:15px; padding:3px;">
-					<center>
-						<B>VIEWS</B></br></br>
-
-						<button style="cursor:hand; width:100%;" onclick="
-						presenter.animateToTrackballPosition([-134.06457816074385, -12.887777440509286, -0.0759087076749807, 0.3412565266806582, -0.27139426466935546, 0.2]);
-						"><span>Occhio</span></button></br>
-
-						<button style="cursor:hand; width:100%;" onclick="
-						presenter.animateToTrackballPosition([-30.932175037195172, 21.48969026734013, -0.10514808884296216, 0.24072568682235757, 0.4103747554925059, 0.47158953820000027]);
-						"><span>Base</span></button></br>
-
-						<button style="cursor:hand; width:100%;" onclick="
-						presenter.animateToTrackballPosition([-78.9460382691582, 23.208563652732604, -0.12881082145875608, -0.14276897621084111, -0.20041195051130686, 0.5021485402753604]);
-						"><span>Ala</span></button></br>
-
-					</center>
-				</div>
-				<!--PREDEFINED VIEWS-->
-				<!---***************************************************************************************************************************************-->
-			</div>
-
-			<div id="lightcontroller">
-				<canvas id="lightcontroller_canvas" width="125" height="125" />
-			</div>
-
-			<div id="measure-box" class="output-box">Measured length<hr/>
-				<span id="measure-output" class="output-text" onmousedown="event.stopPropagation()">0.0</span>
-			</div>
+		<div id="measure-box" class="output-box">Measured length
+			<hr />
+			<span id="measure-output" class="output-text" onmousedown="event.stopPropagation()">0.0</span>
+		</div>
 
 
 
-			<!--questa parte crea effetivamente il canvas, ed e' la parte importante per la visualizzazione del modello. Questo deve esserci per forze nell'integrazione che farai  -->
-			<canvas id="draw-canvas" style="background-image: url(skins/backgrounds/light.jpg)"/>
-		</div> 
-		<!--al momento il controller della luce funziona come js ma va tutto sistemato. Va tolto di li e messo in un file js separato oppure lo lascio cosi com'e'-->
+		<!--questa parte crea effetivamente il canvas, ed e' la parte importante per la visualizzazione del modello. Questo deve esserci per forze nell'integrazione che farai  -->
+		<canvas id="draw-canvas" style="background-image: url(skins/backgrounds/light.jpg)" />
+	</div>
+	<!--al momento il controller della luce funziona come js ma va tutto sistemato. Va tolto di li e messo in un file js separato oppure lo lascio cosi com'e'-->
 
-	</body>
-	</html>
+</body>
+
+</html>
