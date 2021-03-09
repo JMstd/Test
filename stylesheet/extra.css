@@ -37,6 +37,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #mvc_table img {
 	margin: 0px;
+	width: 34px;
+	height: 44px;
 }
 
 #compassC {
