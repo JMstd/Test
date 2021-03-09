@@ -73,80 +73,86 @@
 			<img id="full" title="Full Screen" src="skins/dark/full.png" /><br />
 
 			<div id="right_tolbar" style="position: fixed; right: 1%; top:0%; z-index:2;">
-								<!--style="position: fixed; right:5%; top:2%; z-index:2;"-->
+				<!--style="position: fixed; right:5%; top:2%; z-index:2;"-->
 				<!--COMPASS-->
 				<br>
 				<div
 					style="background-color:rgba(150, 150, 150, 0.8); border-radius: 5px; font-family:verdana; font-size:15px; padding:3px;">
-						<div id = "compassC">
-							<canvas id="compassCanvas"
-								style="background:#555555; width:100; height:100; border:1px solid #000000;" onclick="
+					<div id="compassC">
+						<canvas id="compassCanvas"
+							style="background:#555555; width:100; height:100; border:1px solid #000000;" onclick="
 							var currpos = presenter.getTrackballPosition();
 							currpos[0] = 0.0;
 							presenter.animateToTrackballPosition(currpos);
 							" width="100" height="100">
-							</canvas>
-						</div>
-						<table  id="mvc_table" border="1">
-							<tbody>
-								<tr>
-									<td></td><!---padding: 20px;--->
-									<td ><button style="cursor:hand; border-radius: 8px;"
-											onclick="presenter.animateToTrackballPosition([180.0, 0.0, 0.0, 0.12, 0.0, 3.0]);"><img class="" id="North" title="North" src="North.png" /></button>
-									</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td><button style="cursor:hand; border-radius: 8px;"
-											onclick="presenter.animateToTrackballPosition([-90.0, 0.0, 0.0, 0.12, 0.0, 3.0]);"><img class="" id="West" title="West" src="West.png" /></button>
-									</td>
-									<td><button style="cursor:hand;"
-											onclick="presenter.animateToTrackballPosition([0.0, 90.0, -0.1, 0.0, -0.066, 2.0]);"><img class="" id="Top" title="Top" src="TopB.png" /></button>
-									</td>
-									<td><button style="cursor:hand; border-radius: 8px;"
-											onclick="presenter.animateToTrackballPosition([90.0, 0.0, 0.0, 0.12, 0.0, 3.0]);"><img class="" id="Est" title="Est" src="Est.png" /></button>
-									</td>
-								</tr>
-								<tr>
-									<td></td>
-									<td><button style="cursor:hand; border-radius: 8px;"
-											onclick="presenter.animateToTrackballPosition([0.0, 0.0, 0.0, 0.12, 0.0, 3.0]);"><img class="" id="South" title="South" src="South.png" /></button>
-									</td>
-									<td></td>
-								</tr>
-								<!----*****************inizio gestione MOVE ******************-->
-								<tr>
-									<td></td>
-									<td>
-											<img class="move_ up" id="move_up" title="Move Up" src="arrow.png" />
-									</td>
-									<td></td>
-								</tr>
-								<tr>
+						</canvas>
+					</div>
+					<table id="mvc_table">
+						<tbody>
+							<tr>
+								<td></td>
+								<!---padding: 20px;--->
+								<td><img onclick="presenter.animateToTrackballPosition([180.0, 0.0, 0.0, 0.12, 0.0, 2.50]);"
+										class="" id="Nord" title="Nord" src="Nord_ita.png" />
+								</td>
+								<td></td>
+							</tr>
+							<tr>
+								<!--- border-radius: 8px;"---->
+								<td><img style="cursor:hand;"
+										onclick="presenter.animateToTrackballPosition([-90.0, 0.0, 0.0, 0.12, 0.0, 3.0]);"
+										class="" id="West" title="West" src="Ovest_ita.png" />
+								</td>
+								<td><img style="cursor:hand;"
+										onclick="presenter.animateToTrackballPosition([0.0, 90.0, -0.1, 0.0, -0.066, 2.0]);"
+										class="" id="Top" title="Top" src="TopB.png" />
+								</td>
+								<td><img style="cursor:hand;"
+										onclick="presenter.animateToTrackballPosition([90.0, 0.0, 0.0, 0.12, 0.0, 3.0]);"
+										class="" id="Est" title="Est" src="Est_ita.png" />
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><img style="cursor:hand;"
+										onclick="presenter.animateToTrackballPosition([0.0, 0.0, 0.0, 0.12, 0.0, 3.0]);"
+										class="" id="South" title="South" src="Sud_ita.png" />
+								</td>
+								<td></td>
+							</tr>
+							<!----*****************inizio gestione MOVE ******************-->
+							<tr>
+								<td></td>
+								<td>
+									<img class="move_ up" id="move_up" title="Move Up" src="arrow.png" />
+								</td>
+								<td></td>
+							</tr>
+							<tr>
 
-									<td><img class="move_ left" id="move_left" title="Move Leftt" src="arrow.png" /></td>
+								<td><img class="move_ left" id="move_left" title="Move Leftt" src="arrow.png" /></td>
 
-									<td>
-										<button style="cursor:hand;">
-											<img class="move_" id="home" title="Home" src="skins/dark/home.png" />
-										</button>
-									</td>
+								<td>
+									<button style="cursor:hand;">
+										<img class="move_" id="home" title="Home" src="skins/dark/home.png" />
+									</button>
+								</td>
 
-									<td><img class="move_ right" id="move_right" title="Move Right" src="arrow.png" />
-									</td>
+								<td><img class="move_ right" id="move_right" title="Move Right" src="arrow.png" />
+								</td>
 
-								</tr>
-								<tr>
-									<td></td>
-									<td>
-											<img class="move_ dawn" id="move_dawn" title="Move Dawn" src="arrow.png" />
-									</td>
-									<td></td>
-								</tr>
-								<!----*****************fine gestione MOVE ******************-->
+							</tr>
+							<tr>
+								<td></td>
+								<td>
+									<img class="move_ dawn" id="move_dawn" title="Move Dawn" src="arrow.png" />
+								</td>
+								<td></td>
+							</tr>
+							<!----*****************fine gestione MOVE ******************-->
 
-							</tbody>
-							<!--	<div id="movement_control" style="position: relative;float: right;">
+						</tbody>
+						<!--	<div id="movement_control" style="position: relative;float: right;">
 								<img class="move_ cntr" id="home" title="Home" src="skins/dark/home.png" /><br />
 								<img class="move_ dawn" id="move_dawn" title="Move Dawn" src="arrow.png" />
 								<img class="move_ up" id="move_up" title="Move Up" src="arrow.png" />
@@ -154,7 +160,7 @@
 								<img class="move_ right" id="move_right" title="Move Right" src="arrow.png" />
 							</div>
 						-->
-						</table>
+					</table>
 
 				</div>
 				<!--COMPASS-->

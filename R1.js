@@ -5,6 +5,8 @@ var myurl = "";
 var mdI = "";
 var stMinD = 0;
 var stMaxD = 0;
+var myMinMaxTheta =[];
+var myMinMaxDist = [];
 var stMinT = 0;
 var stMaxT = 0;
 var _PanX = 0.0;
@@ -47,8 +49,10 @@ myurl = ANNOTATIONDATA.url;
 start = ANNOTATIONDATA.start;
 stMinT = ANNOTATIONDATA.minMaxTheta[0];
 stMaxT = ANNOTATIONDATA.minMaxTheta[1];
+myMinMaxTheta.push(stMinT,stMaxT);
 stMinD = ANNOTATIONDATA.minMaxDist[0];
 stMaxD = ANNOTATIONDATA.minMaxDist[1];
+myMinMaxDist.push(stMinD,stMaxD);
 _PanX = ANNOTATIONDATA.PanX;
 
 // hotspotdata 
@@ -427,9 +431,9 @@ function setup3dhop() {
 		startPhi: 0.0,
 		startTheta: 0.0,
 		startDistance: start,
-		minMaxPhi: [-180, 180],
-		minMaxTheta: "[" + stMinT + ", " + stMaxT + "]",
-		minMaxDist: "[" + stMinD + ", " + stMaxD + "]",
+		minMaxPhi: myMinMaxDist,
+		minMaxTheta: myMinMaxTheta,//"[" + stMinT + ", " + stMaxT + "]",
+		minMaxDist: [-80.0,	80.0],//"[" + stMinD + ", " + stMaxD + "]",
 		startPanX: _PanX,
 		startPanY: 0.0,
 		startPanZ: 0.0,
