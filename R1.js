@@ -198,7 +198,7 @@ function lightSwitchL(status) {
 //		$('#lightcontroller').css('left', ($('#light').position().left + $('#light').width() + $('#toolbar').position().left + 1650));
 //		$('#lightcontroller').css('top', ($('#light').position().top + $('#toolbar').position().top + 550));
 
-		$('#lightcontroller').css('right', 8+"%");
+		$('#lightcontroller').css('right', 3+"%");
 		$('#lightcontroller').css('left', "auto");
 		$('#lightcontroller').css('top', ($('#right_tolbar').position().top + $('#right_tolbar').width()*2 + 150));
 
