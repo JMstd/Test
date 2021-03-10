@@ -5,8 +5,8 @@
   "start": 1.10,
   "PanX":0.0,
   "minMaxTheta": [
-    -80.0,
-    80.0
+    -90.0,
+    90.0
   ],
   "minMaxDist":[
     0.1,

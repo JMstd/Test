@@ -393,7 +393,7 @@ function onPickedSpot(id) {
 	for (var ii = 0; ii < HOTSPOTSDATA.annotations.length; ii++) {
 		var view = HOTSPOTSDATA.annotations[ii].view;
 		if (HOTSPOTSDATA.annotations[ii].name == id) {
-			presenter.animateToTrackballPosition(convertToLocal(view));
+			presenter.animateToTrackballPosition(convertToLocal_or(view));
 		};
 	}
 }

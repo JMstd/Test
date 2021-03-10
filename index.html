@@ -77,11 +77,10 @@
 				<!--COMPASS-->
 				<br>
 				<!---background-color:rgba(150, 150, 150, 0.8);--->
-				<div
-					style=" border-radius: 5px; font-family:verdana; font-size:15px; padding:3px;">
+				<div style=" border-radius: 5px; font-family:verdana; font-size:15px; padding:3px;">
 					<div id="compassC">
 						<canvas id="compassCanvas"
-							style="background:#555555; width:100; height:100; border:1px solid #000000;" onclick="
+							style="background:#555555; width:100; height:100; border:2px solid #000000;" onclick="
 							var currpos = presenter.getTrackballPosition();
 							currpos[0] = 0.0;
 							presenter.animateToTrackballPosition(currpos);
@@ -93,7 +92,8 @@
 						<tbody>
 							<tr>
 								<td></td>
-								<!---padding: 20px;  *******  [180.0, 0.0, 0.0, 0.12, 0.0, 3.0] ---> <!---perché c'è il 0.12 ?? lo fa scendere-->
+								<!---padding: 20px;  *******  [180.0, 0.0, 0.0, 0.12, 0.0, 3.0] --->
+								<!---perché c'è il 0.12 ?? lo fa scendere-->
 								<td><img onclick="presenter.animateToTrackballPosition([180.0, 0.0, 0.0, 0.12, 0.0, 1.10]);"
 										class="" id="Nord" title="Nord" src="Nord_ita.png" />
 								</td>
@@ -130,28 +130,27 @@
 							<tr>
 								<td></td>
 								<td>
-									<img class="move_ up" id="move_up" title="Move Up" src="arrow.png" />
+									<img class="move_ up" id="move_up" title="Move Up" src="Arrow_mod.png" />
 								</td>
 								<td></td>
 							</tr>
 							<tr>
 
-								<td><img class="move_ left" id="move_left" title="Move Leftt" src="arrow.png" /></td>
-
-								<td>
-									<button style="cursor:hand;">
-										<img class="move_" id="home" title="Home" src="skins/dark/home.png" />
-									</button>
+								<td><img class="move_ left" id="move_left" title="Move Leftt" src="Arrow_mod.png" />
 								</td>
 
-								<td><img class="move_ right" id="move_right" title="Move Right" src="arrow.png" />
+								<td>
+									<img class="move_" id="home" title="Home" src="skins/dark/home.png" />
+								</td>
+
+								<td><img class="move_ right" id="move_right" title="Move Right" src="Arrow_mod.png" />
 								</td>
 
 							</tr>
 							<tr>
 								<td></td>
 								<td>
-									<img class="move_ dawn" id="move_dawn" title="Move Dawn" src="arrow.png" />
+									<img class="move_ dawn" id="move_dawn" title="Move Dawn" src="Arrow_mod.png" />
 								</td>
 								<td></td>
 							</tr>
