@@ -24,7 +24,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	position: absolute; 
 	z-index: 1;
 	left: -250;
-	bottom: 325; 
+	/*bottom: 325;*/
+	top: -250; 
 	right: auto;
 }
 

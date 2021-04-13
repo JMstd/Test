@@ -203,9 +203,9 @@ function lightSwitchL(status) {
 //		$('#lightcontroller').css('left', ($('#light').position().left + $('#light').width() + $('#toolbar').position().left + 1650));
 //		$('#lightcontroller').css('top', ($('#light').position().top + $('#toolbar').position().top + 550));
 
-		$('#lightcontroller').css('right', 3+"%");
+		$('#lightcontroller').css('right', 14+"%");
 		$('#lightcontroller').css('left', "auto");
-		$('#lightcontroller').css('top', ($('#right_tolbar').position().top + $('#right_tolbar').width()*2 + 150));
+		$('#lightcontroller').css('top', ($('#right_tolbar').position().top + $('#right_tolbar').width()*2 + 180));
 
 		presenter.enableSceneLighting('lighting_off');
 		lightingSwitch('lighting_off');
@@ -214,7 +214,7 @@ function lightSwitchL(status) {
 		$('#light_off').css("visibility", "hidden");
 		$('#light').css("visibility", "visible");
 
-		$('#lightcontroller').css('left', ($('#toolbar').position().left - 500)); //verificare: gestisce la sfera quando sparisce (non ricordo)
+		$('#lightcontroller').css('top', ($('#toolbar').position().top - 250)); //verificare: gestisce la sfera quando sparisce (non ricordo)
 	}
 }
 

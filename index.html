@@ -34,7 +34,6 @@
 	<script type="text/javascript" src="js/trackball_pantilt.js"></script>
 	<!--UTILITY-->
 	<script type="text/javascript" src="js/init.js"></script>
-	<!--HTML2CANVAS-->
 	<script type="text/javascript" src="R1.js"></script>
 </head>
 
@@ -169,6 +168,10 @@
 
 				</div>
 				<!--COMPASS-->
+				<div id="lightcontroller">
+					<canvas id="lightcontroller_canvas" width="125" height="125" />
+				</div>
+				
 			</div>
 
 
@@ -176,9 +179,7 @@
 
 		<!---***************************************************************************************************************************************-->
 
-		<div id="lightcontroller">
-			<canvas id="lightcontroller_canvas" width="125" height="125" />
-		</div>
+
 
 		<div id="measure-box" class="output-box">Measured length
 			<hr />
