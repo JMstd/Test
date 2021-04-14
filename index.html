@@ -5,7 +5,7 @@
 	<!--<meta content="charset=UTF-8"/> -->
 	<!-- ho dovuto aggiungere le due righe qui sotto per togliere il messaggio di errore sulla codifica di html -->
 	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-	<!--questa seconda linea non e' essenziale-->
+	<!--questa seconda linea sotto non è essenziale-->
 	<meta content="utf-8" http-equiv="encoding">
 
 	<title>3DHOP - 3D Heritage Online Presenter</title>
@@ -42,7 +42,7 @@
 	<div id="3dhop" class="tdhop" onmousedown="if (event.preventDefault) event.preventDefault()">
 
 		<div id="tdhlg"></div>
-		<!-- Questa parte gestisce i vari tolbar, al momento io la lascerei cosi. rimane all'interno dello spazio del visualizzarote, poi si puo vedere se metterli in una zona esterna -->
+		<!-- Start Toolbar manager -->
 		<div id="toolbar">
 			<img id="zoomin" title="Zoom In" src="3DHOP/skins/dark/zoomin.png" /><br />
 			<img id="zoomout" title="Zoom Out" src="3DHOP/skins/dark/zoomout.png" /><br />
@@ -71,11 +71,12 @@
 				style="position:absolute; visibility:hidden;" />
 			<img id="full" title="Full Screen" src="3DHOP/skins/dark/full.png" /><br />
 
+			<!-- Right tools -->
 			<div id="right_tolbar" style="position: fixed; right: 1%; top:0%; z-index:2;">
 				<!--style="position: fixed; right:5%; top:2%; z-index:2;"-->
-				<!--COMPASS-->
+
+				<!-- Start COMPASS -->
 				<br>
-				<!---background-color:rgba(150, 150, 150, 0.8);--->
 				<div style=" border-radius: 5px; font-family:verdana; font-size:15px; padding:3px;">
 					<div id="compassC">
 						<canvas id="compassCanvas"
@@ -92,7 +93,6 @@
 							<tr>
 								<td></td>
 								<!---padding: 20px;  *******  [180.0, 0.0, 0.0, 0.12, 0.0, 3.0] --->
-								<!---perché c'è il 0.12 ?? lo fa scendere-->
 								<td><img onclick="presenter.animateToTrackballPosition([180.0, 0.0, 0.0, 0.0, 0.0, 1.10]);"
 										class="" id="Nord" title="Nord" src="img/Nord_ita.png" />
 								</td>
@@ -125,7 +125,7 @@
 								<td></td>
 							</tr>
 							<br>
-							<!----*****************inizio gestione MOVE ******************-->
+							<!----***************** Start manager MOVE ******************-->
 							<tr>
 								<td></td>
 								<td>
@@ -142,7 +142,8 @@
 									<img class="move_" id="home" title="Home" src="3DHOP/skins/dark/home.png" />
 								</td>
 
-								<td><img class="move_ right" id="move_right" title="Move Right" src="img/Arrow_mod.png" />
+								<td><img class="move_ right" id="move_right" title="Move Right"
+										src="img/Arrow_mod.png" />
 								</td>
 
 							</tr>
@@ -153,46 +154,31 @@
 								</td>
 								<td></td>
 							</tr>
-							<!----*****************fine gestione MOVE ******************-->
+							<!----***************** End manager MOVE ******************-->
 
 						</tbody>
-						<!--	<div id="movement_control" style="position: relative;float: right;">
-								<img class="move_ cntr" id="home" title="Home" src="skins/dark/home.png" /><br />
-								<img class="move_ dawn" id="move_dawn" title="Move Dawn" src="arrow.png" />
-								<img class="move_ up" id="move_up" title="Move Up" src="arrow.png" />
-								<img class="move_ left" id="move_left" title="Move Leftt" src="arrow.png" />
-								<img class="move_ right" id="move_right" title="Move Right" src="arrow.png" />
-							</div>
-						-->
 					</table>
-
 				</div>
-				<!--COMPASS-->
+				<!-- End COMPASS -->
+
+				<!-- Light controller -->
 				<div id="lightcontroller">
 					<canvas id="lightcontroller_canvas" width="125" height="125" />
 				</div>
-				
+
 			</div>
 
-
 		</div>
-
+		<!-- End Toolbar manager -->
 		<!---***************************************************************************************************************************************-->
-
-
 
 		<div id="measure-box" class="output-box">Measured length
 			<hr />
 			<span id="measure-output" class="output-text" onmousedown="event.stopPropagation()">0.0</span>
 		</div>
 
-
-
-		<!--questa parte crea effetivamente il canvas, ed e' la parte importante per la visualizzazione del modello. Questo deve esserci per forze nell'integrazione che farai  -->
 		<canvas id="draw-canvas" style="background-image: url(3DHOP/skins/backgrounds/light.jpg)" />
 	</div>
-	<!--al momento il controller della luce funziona come js ma va tutto sistemato. Va tolto di li e messo in un file js separato oppure lo lascio cosi com'e'-->
-
 </body>
 
 </html>
