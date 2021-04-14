@@ -16,25 +16,25 @@
 		}
 	</style>
 	<!--STYLESHEET-->
-	<link type="text/css" rel="stylesheet" href="stylesheet/3dhop.css" />
+	<link type="text/css" rel="stylesheet" href="3DHOP/stylesheet/3dhop.css" />
 	<link type="text/css" rel="stylesheet" href="stylesheet/extra.css" />
 	<!--SPIDERGL-->
-	<script type="text/javascript" src="js/spidergl.js"></script>
+	<script type="text/javascript" src="3DHOP/js/spidergl.js"></script>
 	<!--JQUERY-->
-	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="3DHOP/js/jquery.js"></script>
 	<!--PRESENTER-->
-	<script type="text/javascript" src="js/presenter.js"></script>
+	<script type="text/javascript" src="3DHOP/js/presenter.js"></script>
 	<!--3D MODELS LOADING AND RENDERING-->
-	<script type="text/javascript" src="js/nexus.js"></script>
-	<script type="text/javascript" src="js/ply.js"></script>
+	<script type="text/javascript" src="3DHOP/js/nexus.js"></script>
+	<script type="text/javascript" src="3DHOP/js/ply.js"></script>
 	<!--TRACKBALLS-->
-	<script type="text/javascript" src="js/trackball_sphere.js"></script>
-	<script type="text/javascript" src="js/trackball_turntable.js"></script>
-	<script type="text/javascript" src="js/trackball_turntable_pan.js"></script>
-	<script type="text/javascript" src="js/trackball_pantilt.js"></script>
+	<script type="text/javascript" src="3DHOP/js/trackball_sphere.js"></script>
+	<script type="text/javascript" src="3DHOP/js/trackball_turntable.js"></script>
+	<script type="text/javascript" src="3DHOP/js/trackball_turntable_pan.js"></script>
+	<script type="text/javascript" src="3DHOP/js/trackball_pantilt.js"></script>
 	<!--UTILITY-->
-	<script type="text/javascript" src="js/init.js"></script>
-	<script type="text/javascript" src="R1.js"></script>
+	<script type="text/javascript" src="3DHOP/js/init.js"></script>
+	<script type="text/javascript" src="js/R1.js"></script>
 </head>
 
 <body>
@@ -44,32 +44,32 @@
 		<div id="tdhlg"></div>
 		<!-- Questa parte gestisce i vari tolbar, al momento io la lascerei cosi. rimane all'interno dello spazio del visualizzarote, poi si puo vedere se metterli in una zona esterna -->
 		<div id="toolbar">
-			<img id="zoomin" title="Zoom In" src="skins/dark/zoomin.png" /><br />
-			<img id="zoomout" title="Zoom Out" src="skins/dark/zoomout.png" /><br />
-			<img id="lighting_off" title="Enable Lighting" src="skins/dark/lighting_off.png"
+			<img id="zoomin" title="Zoom In" src="3DHOP/skins/dark/zoomin.png" /><br />
+			<img id="zoomout" title="Zoom Out" src="3DHOP/skins/dark/zoomout.png" /><br />
+			<img id="lighting_off" title="Enable Lighting" src="3DHOP/skins/dark/lighting_off.png"
 				style="position:absolute; visibility:hidden;" />
-			<img id="lighting" title="Disable Lighting" src="skins/dark/lighting.png" /><br />
-			<img id="light_off" title="Disable Light Control" src="skins/dark/lightcontrol_on.png"
+			<img id="lighting" title="Disable Lighting" src="3DHOP/skins/dark/lighting.png" /><br />
+			<img id="light_off" title="Disable Light Control" src="3DHOP/skins/dark/lightcontrol_on.png"
 				style="position:absolute; visibility:hidden;" />
-			<img id="light" title="Enable Light Control" src="skins/dark/lightcontrol.png" /><br />
+			<img id="light" title="Enable Light Control" src="3DHOP/skins/dark/lightcontrol.png" /><br />
 			<!--COLOR-->
-			<img id="color_on" title="Enable Color" src="skins/dark/color_on.png"
+			<img id="color_on" title="Enable Color" src="3DHOP/skins/dark/color_on.png"
 				style="position:absolute; visibility:hidden;" />
-			<img id="color" title="Disable Color" src="skins/dark/color.png" /><br />
+			<img id="color" title="Disable Color" src="3DHOP/skins/dark/color.png" /><br />
 			<!--COLOR-->
-			<img id="perspective" title="Perspective Camera" src="skins/dark/perspective.png"
+			<img id="perspective" title="Perspective Camera" src="3DHOP/skins/dark/perspective.png"
 				style="position:absolute; visibility:hidden;" />
-			<img id="orthographic" title="Orthographic Camera" src="skins/dark/orthographic.png" /><br />
-			<img id="hotspot_on" title="Hide Hotspots" src="skins/dark/pin_on.png"
+			<img id="orthographic" title="Orthographic Camera" src="3DHOP/skins/dark/orthographic.png" /><br />
+			<img id="hotspot_on" title="Hide Hotspots" src="3DHOP/skins/dark/pin_on.png"
 				style="position:absolute; visibility:hidden;" />
-			<img id="hotspot" title="Show Hotspots" src="skins/dark/pin.png" /><br />
-			<img id="screenshot" title="Save Screenshot" src="skins/dark/screenshot.png" /><br />
-			<img id="measure_on" title="Disable Measure Tool" src="skins/dark/measure_on.png"
+			<img id="hotspot" title="Show Hotspots" src="3DHOP/skins/dark/pin.png" /><br />
+			<img id="screenshot" title="Save Screenshot" src="3DHOP/skins/dark/screenshot.png" /><br />
+			<img id="measure_on" title="Disable Measure Tool" src="3DHOP/skins/dark/measure_on.png"
 				style="position:absolute; visibility:hidden;" />
-			<img id="measure" title="Enable Measure Tool" src="skins/dark/measure.png" /><br />
-			<img id="full_on" title="Exit Full Screen" src="skins/dark/full_on.png"
+			<img id="measure" title="Enable Measure Tool" src="3DHOP/skins/dark/measure.png" /><br />
+			<img id="full_on" title="Exit Full Screen" src="3DHOP/skins/dark/full_on.png"
 				style="position:absolute; visibility:hidden;" />
-			<img id="full" title="Full Screen" src="skins/dark/full.png" /><br />
+			<img id="full" title="Full Screen" src="3DHOP/skins/dark/full.png" /><br />
 
 			<div id="right_tolbar" style="position: fixed; right: 1%; top:0%; z-index:2;">
 				<!--style="position: fixed; right:5%; top:2%; z-index:2;"-->
@@ -94,7 +94,7 @@
 								<!---padding: 20px;  *******  [180.0, 0.0, 0.0, 0.12, 0.0, 3.0] --->
 								<!---perché c'è il 0.12 ?? lo fa scendere-->
 								<td><img onclick="presenter.animateToTrackballPosition([180.0, 0.0, 0.0, 0.0, 0.0, 1.10]);"
-										class="" id="Nord" title="Nord" src="Nord_ita.png" />
+										class="" id="Nord" title="Nord" src="img/Nord_ita.png" />
 								</td>
 								<td></td>
 							</tr>
@@ -102,17 +102,17 @@
 								<!--- border-radius: 8px;"    *******  [-90.0, 0.0, 0.0, 0.12, 0.0, 3.0] ---->
 								<td><img style="cursor:hand;"
 										onclick="presenter.animateToTrackballPosition([-90.0, 0.0, 0.0, 0.0, 0.0, 1.10]);"
-										class="" id="West" title="West" src="Ovest_ita.png" />
+										class="" id="West" title="West" src="img/Ovest_ita.png" />
 								</td>
 								<!-----  **************** [0.0, 90.0, -0.1, 0.0, -0.066, 2.0]-->
 								<td><img style="cursor:hand;"
 										onclick="presenter.animateToTrackballPosition([0.0, 90.0, 0.0, 0.0, 0.0, 1.0]);"
-										class="" id="Top" title="Top" src="TopB.png" />
+										class="" id="Top" title="Top" src="img/TopB.png" />
 								</td>
 								<!-----  **************** [90.0, 0.0, 0.0, 0.12, 0.0, 3.0]-->
 								<td><img style="cursor:hand;"
 										onclick="presenter.animateToTrackballPosition([90.0, 0.0, 0.0, 0.0, 0.0, 1.10]);"
-										class="" id="Est" title="Est" src="Est_ita.png" />
+										class="" id="Est" title="Est" src="img/Est_ita.png" />
 								</td>
 							</tr>
 							<tr>
@@ -120,7 +120,7 @@
 								<!-----  **************** [0.0, 0.0, 0.0, 0.12, 0.0, 3.0]-->
 								<td><img style="cursor:hand;"
 										onclick="presenter.animateToTrackballPosition([0.0, 0.0, 0.0, 0.0, 0.0, 1.10]);"
-										class="" id="South" title="South" src="Sud_ita.png" />
+										class="" id="South" title="South" src="img/Sud_ita.png" />
 								</td>
 								<td></td>
 							</tr>
@@ -129,27 +129,27 @@
 							<tr>
 								<td></td>
 								<td>
-									<img class="move_ up" id="move_up" title="Move Up" src="Arrow_mod.png" />
+									<img class="move_ up" id="move_up" title="Move Up" src="img/Arrow_mod.png" />
 								</td>
 								<td></td>
 							</tr>
 							<tr>
 
-								<td><img class="move_ left" id="move_left" title="Move Leftt" src="Arrow_mod.png" />
+								<td><img class="move_ left" id="move_left" title="Move Leftt" src="img/Arrow_mod.png" />
 								</td>
 
 								<td>
-									<img class="move_" id="home" title="Home" src="skins/dark/home.png" />
+									<img class="move_" id="home" title="Home" src="3DHOP/skins/dark/home.png" />
 								</td>
 
-								<td><img class="move_ right" id="move_right" title="Move Right" src="Arrow_mod.png" />
+								<td><img class="move_ right" id="move_right" title="Move Right" src="img/Arrow_mod.png" />
 								</td>
 
 							</tr>
 							<tr>
 								<td></td>
 								<td>
-									<img class="move_ dawn" id="move_dawn" title="Move Dawn" src="Arrow_mod.png" />
+									<img class="move_ dawn" id="move_dawn" title="Move Dawn" src="img/Arrow_mod.png" />
 								</td>
 								<td></td>
 							</tr>
@@ -189,7 +189,7 @@
 
 
 		<!--questa parte crea effetivamente il canvas, ed e' la parte importante per la visualizzazione del modello. Questo deve esserci per forze nell'integrazione che farai  -->
-		<canvas id="draw-canvas" style="background-image: url(skins/backgrounds/light.jpg)" />
+		<canvas id="draw-canvas" style="background-image: url(3DHOP/skins/backgrounds/light.jpg)" />
 	</div>
 	<!--al momento il controller della luce funziona come js ma va tutto sistemato. Va tolto di li e messo in un file js separato oppure lo lascio cosi com'e'-->
 
