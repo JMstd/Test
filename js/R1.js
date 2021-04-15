@@ -1,11 +1,11 @@
 
 var start = 0;
-var name = "";
+var md_name = "";
 var myurl = "";
 var mdI = "";
 var stMinD = 0;
 var stMaxD = 0;
-var myMinMaxTheta =[];
+var myMinMaxTheta = [];
 var myMinMaxDist = [];
 var stMinT = 0;
 var stMaxT = 0;
@@ -41,7 +41,7 @@ xmlhttp.send();
 //**************************** Start setting datas from json ****************************
 
 // Model data 
-name = ANNOTATIONDATA.name;
+md_name = ANNOTATIONDATA.name;
 mdI = ANNOTATIONDATA.mdI;
 myurl = ANNOTATIONDATA.url;
 start = ANNOTATIONDATA.start;
@@ -91,103 +91,49 @@ function actionsToolbar(action) {
 	else if (action == 'hotspot' || action == 'hotspot_on') { presenter.toggleSpotVisibility(HOP_ALL, true); presenter.enableOnHover(!presenter.isOnHoverEnabled()); hotspotSwitch(); }
 	else if (action == 'measure' || action == 'measure_on') { presenter.enableMeasurementTool(!presenter.isMeasurementToolEnabled()); measureSwitch(); }
 	else if (action == 'screenshot') presenter.saveScreenshot();
-	else if (action == 'full_on') { fullscreenSwitch(); /*lightCtrL('full_on');*/ }
-	else if (action == 'full') { fullscreenSwitch(); /*lightCtrL('full');*/ }
+	else if (action == 'full_on') { fullscreenSwitch(); }
+	else if (action == 'full') { fullscreenSwitch(); }
 	else if (action == 'move_up' || 'move_dawn' || 'move_right' || 'move_left') step(action);
 }
 
 //**************************** Start manager of arrows movements ****************************
 function step(action) {
 	var my_pos = [];
+	var vstep = 0.1;
+	var hstep = 0.1;
 	my_pos = presenter.getTrackballPosition();
 
 	switch (action) {
 		case 'move_up':
-			my_pos[3] -= 0.1;
+			my_pos[3] -= vstep;
 			presenter.animateToTrackballPosition(my_pos);
 			break;
 		case 'move_dawn':
-			my_pos[3] += 0.1;
+			my_pos[3] += vstep;
 			presenter.animateToTrackballPosition(my_pos);
 			break;
-		// Math.sin(); Math.cos();	
 		case 'move_right':
-			if (my_pos[0] == 0) {
-				my_pos[2] -= 0.1;
-				presenter.animateToTrackballPosition(my_pos);
-			}
-			else {
-				/*	my_pos[2]-=0.1 * Math.cos(my_pos[0]);				
-					my_pos[4]-=0.1 * Math.sin(my_pos[0]);
-					presenter.animateToTrackballPosition(my_pos);
-					*/
-
-				var gr = Math.PI * my_pos[0] / 180; // da gradi a radianti
-				my_pos[2] -= 0.1 * Math.cos(gr);
-				my_pos[4] += 0.1 * Math.sin(gr);
-
-				presenter.animateToTrackballPosition(my_pos);
-			}
+			var gr = Math.PI * my_pos[0] / 180; // from degrees to radians
+			my_pos[2] -= 0.1 * Math.cos(gr);
+			my_pos[4] += 0.1 * Math.sin(gr);
+			presenter.animateToTrackballPosition(my_pos);
 			break;
 		case 'move_left':
-			if (my_pos[0] == 0) {
-				my_pos[2] += 0.1;
-				presenter.animateToTrackballPosition(my_pos);
-			}
-			else {
-				// prendo la mia misura, che dovrebbe essere in gradi e la trasformo in radianti. 
-				// calcolo seno e coseno di rotH e li moltiplico per quanto volgio muovermi, poi assegno i valori 
-				/*var gr = Math.PI * my_pos[0] / 180 ; // da gradi a radianti
-				var v2 = Math.cos(gr) *0.1 ;
-				var v4 = Math.sin(gr) *0.1 ;
-				var rg2 = 180 * v2 / Math.PI ; // da radianti a gradi
-				var rg4 = 180 * v4 / Math.PI ; // da radianti a gradi
-
-				my_pos[2]+= rg2;				
-				my_pos[4]+= rg4;
-				*/
-				//my_pos[2]+= 0.1 * Math.cos(my_pos[0]);				
-				//my_pos[4]+= 0.1 * Math.sin(my_pos[0]);
-
-				//Maaaahhh al momento questa sembra la versione migliore, funziona, non benissimo 
-				// agli estremi  <-- --> comincia es. ad avicinarsi 
-				// se faccio zoom e mi muovo o muov il modello dopo che mi sono spostatoa destra e a sinistra, fa cose che un utente non si aspetta faccia 
-
-				var gr = Math.PI * my_pos[0] / 180; // da gradi a radianti
-				my_pos[2] += 0.1 * Math.cos(gr);
-				my_pos[4] -= 0.1 * Math.sin(gr);
-
-				presenter.animateToTrackballPosition(my_pos);
-			}
+			var gr = Math.PI * my_pos[0] / 180; // from degrees to radians
+			my_pos[2] += 0.1 * Math.cos(gr);
+			my_pos[4] -= 0.1 * Math.sin(gr);
+			presenter.animateToTrackballPosition(my_pos);
 			break;
 
 	}
 }
 //**************************** End manager of arrows movements ****************************
-
+/*
 function log(msg) {
 	document.getElementById("log-text").innerHTML += msg + "\n";
 	document.getElementById("log-text").scrollTop = document.getElementById("log-text").scrollHeight;
 }
-
-function lightCtrL(status) {
-
-	//{position:relative;right:-500%;}
-	if (status == 'full_on') {
-
-		//   		alert("piccolo");
-		//    	$('#lightcontroller').css('left', ($('#lightcontroller').position().left - 250));
-		//$('#lightcontroller').css('left', + 25);   ripetizione inutile errore di copiatura
-		$('#lightcontroller').css('left', + 25);
-	}
-	else {
-
-		$('#lightcontroller').css('top', ($('#light').position().top + $('#toolbar').position().top * 50));
-		$('#lightcontroller').css('left', ($('#light').position().left + $('\#toolbar').position().left * 140));
-
-	}
-}
-
+*/
 //**************************** Manages the lightcontroller ****************************
 function lightSwitchL(status) {
 
@@ -197,9 +143,9 @@ function lightSwitchL(status) {
 		$('#lighting_off').css("visibility", "hidden");	//manage lighting combined interface
 		$('#lighting').css("visibility", "visible");	//manage lighting combined interface
 
-		$('#lightcontroller').css('right', 14+"%");
+		$('#lightcontroller').css('right', 14 + "%");
 		$('#lightcontroller').css('left', "auto");
-		$('#lightcontroller').css('top', ($('#right_tolbar').position().top + $('#right_tolbar').width()*2 + 180));
+		$('#lightcontroller').css('top', ($('#right_tolbar').position().top + $('#right_tolbar').width() * 2 + 180));
 
 		presenter.enableSceneLighting('lighting_off');
 		lightingSwitch('lighting_off');
@@ -313,7 +259,8 @@ HTMLCanvasElement.prototype.relMouseCoords = relMouseCoords;
 
 //**************************** End lightControler functions ****************************
 
-// ****************************** ConvertToGlobal/Local coordinates taken from SPOTMAKER. Transform coordinates from global to local and viceversa.
+//****************************** Start ConvertToGlobal/Local coordinates taken from SPOTMAKER. ******************************
+//****************************** Transform coordinates from global to local and viceversa. ******************************
 
 function convertToGlobal(state) {
 
@@ -341,26 +288,18 @@ function convertToLocal(state) {
 	newstate[3] = (state[3] - presenter.sceneCenter[1]) * presenter.sceneRadiusInv;
 	newstate[4] = (state[4] - presenter.sceneCenter[2]) * presenter.sceneRadiusInv;
 	//distance
-	//(state[5] * presenter.sceneRadiusInv)-(0.9* presenter.sceneRadiusInv);
-	/*	if ((state[5] * presenter.sceneRadiusInv - 0.9) == 1.10 ) {
-			newstate[5] = state[5] * presenter.sceneRadiusInv - 0.9;
-		}else {
-			newstate[5] = (state[5] - (0.9 / presenter.sceneRadiusInv)) * presenter.sceneRadiusInv; // serve a riadattare lo zoom della croce con le impostazioni da me messe qui (rispetto a quelle di SPOTMAKER)
-			if (newstate[5] < 0) {
-				newstate[5] *= -1; //serve ad esvitare valori negativi, così quando zommo molto sembra andare 
-			}
-		}
-		*/
+
 	if (state[5] * presenter.sceneRadiusInv == 2) {
 		newstate[5] = start;
 	}
 	else {
-		newstate[5] = state[5] * presenter.sceneRadiusInv;/*start;/*state[5] * presenter.sceneRadiusInv-0.9;*/ // 1.10 questo valore nel mio caso deve essere 1.10; poiché io ho impostato questa come start. cioé la distanza a cui sta il modello
+		newstate[5] = state[5] * presenter.sceneRadiusInv;
 	}
-	return newstate;								//	la moltiplicazione viene 2. io sotraggo questo 0.9, in modo da far diventare il tutto 1.10; così il modello è leggrmente più lontano, ma rimane ad una distanza adeguata
+	return newstate;
 }
+//****************************** End ConvertToGlobal/Local ******************************
 
-//**************************************************************************************************************
+//****************************** Original version of the funcion **********************************************
 function convertToLocal_or(state) {
 
 	var newstate = [];
@@ -410,10 +349,10 @@ function setup3dhop() {
 	};
 
 	//*********************************** Start passage of data for settings ***********************************
-	myscene.meshes[name] = { url: myurl };
+	myscene.meshes[md_name] = { url: myurl };
 	myscene.meshes[tipo_hs] = { url: url_hs };    // Here I declare the sphere
 	myscene.modelInstances[mdI] = {
-		mesh: name,
+		mesh: md_name,
 		color: [-2.0, -2.0, -2.0]
 	};
 	myscene.spots = cont;
@@ -479,9 +418,9 @@ function updateCompass(angle, tilt) {
 
 	ctx.beginPath();
 	ctx.lineWidth = 1;   // Change the thickness of the cardinal points
-//	ctx.arc(0, 0, 45, 0, 2 * Math.PI, false);  // With the commented part underneath, create an inner circumference
-//	ctx.strokeStyle = '#443377';
-//	ctx.stroke();
+	//	ctx.arc(0, 0, 45, 0, 2 * Math.PI, false);  // With the commented part underneath, create an inner circumference
+	//	ctx.strokeStyle = '#443377';
+	//	ctx.stroke();
 
 	ctx.font = "28px Verdana";
 	ctx.strokeStyle = '#ff4444';
