@@ -1,97 +1,43 @@
-/*
-3DHOP - 3D Heritage Online Presenter
-Copyright (c) 2014, Marco Callieri - Visual Computing Lab, ISTI - CNR
-All rights reserved.    
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
-
-/*versione temporanea, di prova, ma per ora funziona*/
 
 #lightcontroller { 
 	position: absolute; 
 	z-index: 1;
-	left: -250;
-	/*bottom: 325;*/
-	top: -250; 
+	top: -100%; 
 	right: auto;
 }
 
-/****************start move_control**********************/
+/********************** Start move_control **********************/
 
-#mvc_table /*tbody tr td*/ {
-/*	border: 1px ridge black;*/
+#mvc_table {
 	text-align: center;
 }
 
 #mvc_table img {
 	margin: 0px;
-	/*width: 34px;
-	height: 44px;*/
 }
 
 #compassC {
 	text-align: center;
 }
 
-/*.move_{
-	width: 40px;
-	height: 40px;
-	position: fixed;
-	right: 1%;
-	top:1%;
-	background-color:rgba(50, 50, 50, 0.5);
-	padding: 0.2%;
-	border:2px solid #f8f8f8; 
-	border-radius:10px;
-	box-shadow:1px 1px 10px #f8f8f8;
-}*/
-
 .move_ {
 	width: 50px !important;
 	height: 50px !important;
 }
 
-.cntr{/*
-	margin-right: 5%;
-	margin-top: 20%;
-	*/
-}
-
 .up{
 	transform: rotate(270deg);
-	/*margin-right: 5%;
-	margin-top: 16.5%;
-	*/
 }
 .dawn{
 	transform: rotate(90deg);
-	/*margin-right: 5%;
-	margin-top: 23.5%;
-	*/
-}
-.right{
-	/*margin-top: 20%;
-	margin-right: 1.5%;
-	*/
-}
-.left{
-	transform: rotate(180deg);
-	/*margin-top: 20%;
-	margin-right: 8.5%;
-	*/
 }
 
-/****************end move_control**********************/
+/*.right{
+
+}*/
+
+.left{
+	transform: rotate(180deg);
+}
+
+/********************** End move_control **********************/
