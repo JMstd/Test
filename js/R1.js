@@ -38,11 +38,9 @@ xmlhttp.onreadystatechange = function () {
 xmlhttp.open("GET", "js/coord_test_RC.json", false);
 xmlhttp.send();
 
-/********************************Set data from JSON*************************************/
-//eventualmente può avere senso settare dei valori di default, per rendere visibile il modello, in modo che se , l'utente non inserisce nulla, vengano presi quelli. Altrimenti qui sotto si reinseriscono i valor scelti dall'utente.
-// questo però causa il problema che l'utente potrebbe non rendersi conto di non aver inserito dei parametri che andavano inseriti. 
-//buon compromesso può essere, dare un messaggio che avverta l'utente che non ha inserito uno o più dei parametri necessari al json, ma che il modello può comunque essere visualizzato con dei parametri di default 
-//in alternativa per far funzionare il tutto e basta, posso togliere la dichiarazione delle variabili sopra e dichiararle direttamente qui sotto e inizializzarle col valore  
+//**************************** Start setting datas from json ****************************
+
+// Model data 
 name = ANNOTATIONDATA.name;
 mdI = ANNOTATIONDATA.mdI;
 myurl = ANNOTATIONDATA.url;
@@ -56,7 +54,7 @@ myMinMaxTheta.push(stMinT, stMaxT);
 myMinMaxDist.push(stMinD, stMaxD);
 _PanX = ANNOTATIONDATA.PanX;
 
-// hotspotdata 
+// Start hotspots data 
 var cont = {};
 for (var ii = 0; ii < HOTSPOTSDATA.annotations.length; ii++) {
 	var pos = HOTSPOTSDATA.annotations[ii].position
@@ -72,9 +70,7 @@ for (var ii = 0; ii < HOTSPOTSDATA.annotations.length; ii++) {
 	};
 	cont[HOTSPOTSDATA.annotations[ii].name] = newSpot;
 }
-// fine hotspotdata
-
-// ATT /_\ l'errore json è dato dal fatto che l'estensione del file è json e non txt
+// End hotspots data
 
 function actionsToolbar(action) {
 	if (action == 'home') presenter.resetTrackball();
@@ -100,7 +96,7 @@ function actionsToolbar(action) {
 	else if (action == 'move_up' || 'move_dawn' || 'move_right' || 'move_left') step(action);
 }
 
-// start menager of arrows movement
+//**************************** Start manager of arrows movements ****************************
 function step(action) {
 	var my_pos = [];
 	my_pos = presenter.getTrackballPosition();
@@ -167,7 +163,7 @@ function step(action) {
 
 	}
 }
-// end menager of arrows movement
+//**************************** End manager of arrows movements ****************************
 
 function log(msg) {
 	document.getElementById("log-text").innerHTML += msg + "\n";
@@ -192,6 +188,7 @@ function lightCtrL(status) {
 	}
 }
 
+//**************************** Manages the lightcontroller ****************************
 function lightSwitchL(status) {
 
 	if (status == 'light') {
@@ -199,9 +196,6 @@ function lightSwitchL(status) {
 		$('#light_off').css("visibility", "visible");
 		$('#lighting_off').css("visibility", "hidden");	//manage lighting combined interface
 		$('#lighting').css("visibility", "visible");	//manage lighting combined interface
-
-//		$('#lightcontroller').css('left', ($('#light').position().left + $('#light').width() + $('#toolbar').position().left + 1650));
-//		$('#lightcontroller').css('top', ($('#light').position().top + $('#toolbar').position().top + 550));
 
 		$('#lightcontroller').css('right', 14+"%");
 		$('#lightcontroller').css('left', "auto");
@@ -214,11 +208,11 @@ function lightSwitchL(status) {
 		$('#light_off').css("visibility", "hidden");
 		$('#light').css("visibility", "visible");
 
-		$('#lightcontroller').css('top', ($('#toolbar').position().top - 250)); //verificare: gestisce la sfera quando sparisce (non ricordo)
+		$('#lightcontroller').css('top', ($('#toolbar').position().top - 250)); //manages the lightcontroller when it disappears
 	}
 }
 
-// start lightController functions ---------------------------------------------------------------------------------------------
+//**************************** Start functions that make lightController work ****************************
 function click_lightcontroller(event) {
 	var XX = 0, YY = 0;
 	var midpoint = [63, 63];
@@ -316,13 +310,10 @@ function relMouseCoords(event) {
 	return { x: canvasX, y: canvasY }
 }
 HTMLCanvasElement.prototype.relMouseCoords = relMouseCoords;
-// end lightControler functions ************************************************************************************************************
 
-// ****************************** convertTOGlobal/Local prese da SPOTMAKER, per trasformare le coordinate da locali a globali. Da usare per muovere il modello 
-// ****************************** quando si clicca sul hotspot 
-function hotspotAdapt(my_distance, new_distance) {
-	return my_distance / new_distance;
-}
+//**************************** End lightControler functions ****************************
+
+// ****************************** ConvertToGlobal/Local coordinates taken from SPOTMAKER. Transform coordinates from global to local and viceversa.
 
 function convertToGlobal(state) {
 
@@ -387,17 +378,16 @@ function convertToLocal_or(state) {
 }
 //**************************************************************************************************************
 
-//start hotspots f()
+//*********************************** Start hotspots f() ***********************************
 function onPickedSpot(id) {
-	//mi permette di prendere ed usare la posizione del json, una volta cliccato l'hotspot.
 	for (var ii = 0; ii < HOTSPOTSDATA.annotations.length; ii++) {
 		var view = HOTSPOTSDATA.annotations[ii].view;
 		if (HOTSPOTSDATA.annotations[ii].name == id) {
 			presenter.animateToTrackballPosition(convertToLocal_or(view));
-		};
+		}
 	}
 }
-//end hotspots f
+//*********************************** End hotspots f() ***********************************
 
 function onEndMeasure(measure) {
 	// measure.toFixed(2) sets the number of decimals when displaying the measure
@@ -419,11 +409,11 @@ function setup3dhop() {
 		space: {}
 	};
 
-	//*******************************************************inizio passaggio da xml *************************
+	//*********************************** Start passage of data for settings ***********************************
 	myscene.meshes[name] = { url: myurl };
-	myscene.meshes[tipo_hs] = { url: url_hs }; // mi dichiara la Sphere //può avere senso aggiungere altri modelli, orendere questa parte più facilmente interagibile con l'utente; oppure con l'hotspot
+	myscene.meshes[tipo_hs] = { url: url_hs };    // Here I declare the sphere
 	myscene.modelInstances[mdI] = {
-		mesh: name,						// in modo che capisca da solo quale forma usare (nell'eventualità di hotspot con fome differenti) (usa "type" da hotspots.json)
+		mesh: name,
 		color: [-2.0, -2.0, -2.0]
 	};
 	myscene.spots = cont;
@@ -433,8 +423,8 @@ function setup3dhop() {
 		startTheta: 0.0,
 		startDistance: start,
 		minMaxPhi: [-180, 180],
-		minMaxTheta: myMinMaxTheta,//"[" + stMinT + ", " + stMaxT + "]",  // [-80.0,80.0] // theta mi regola quanto posso girare alto - basso il modello rispetto ad un'asse centrale 
-		minMaxDist: myMinMaxDist,//"[" + stMinD + ", " + stMaxD + "]", //[2.5,3.0]
+		minMaxTheta: myMinMaxTheta,   //[stMinT, stMaxT],  // [-80.0,80.0] // Theta adjusts how much I can turn (low - high) the model about a central axis 
+		minMaxDist: myMinMaxDist,    //[stMinD, stMaxD],  //  [2.5,3.0]
 		startPanX: _PanX,
 		startPanY: 0.0,
 		startPanZ: 0.0,
@@ -442,7 +432,7 @@ function setup3dhop() {
 		minMaxPanY: [-0.6, 0.6],
 		minMaxPanZ: [-0.3, 0.3]
 	};
-	myscene.space = {// tutta questa parte si puo mettere in xml, almeno la patrte con i parametri della camera secondo me vanno messi in xml
+	myscene.space = {
 		centerMode: "scene",
 		radiusMode: "scene",
 		cameraFOV: 60.0,
@@ -450,22 +440,21 @@ function setup3dhop() {
 		cameraType: "perspective",
 		sceneLighting: true
 	};
-	//******************************************************fine passaggio da xml**************************
+	//*********************************** End passage of data for settings ***********************************
 
-	//assegna i valori di myscene a presenter
+	// Assign myscene values to presenter
 	presenter.setScene(myscene);
 
-	/*inizio hotspots (il resto del codice aggiunto e' spots sopra)*/
+	/* Start hotspots (the rest of the added code is spots above) */
 	presenter.setSpotVisibility(HOP_ALL, false, true);
 
 	presenter._onPickedSpot = onPickedSpot;
-	/*fine hotspots*/
+	/* End hotspots */
 
 	presenter._onEndMeasurement = onEndMeasure;
 }
 
-//************************************************* COMPASS (bussola) ********************************
-// COMPASS
+//**************************** Start COMPASS ****************************
 function onTrackballUpdate(trackState) {
 	updateCompass(sglDegToRad(trackState[0]), sglDegToRad(trackState[1]));
 }
@@ -489,8 +478,8 @@ function updateCompass(angle, tilt) {
 	ctx.rotate(angle);
 
 	ctx.beginPath();
-//	ctx.arc(0, 0, 45, 0, 2 * Math.PI, false);  // fondamentalmente mi toglie il cerchio dentro
-	ctx.lineWidth = 1;   // a me personalmente piace a 1 o 0 anziché 4
+	ctx.lineWidth = 1;   // Change the thickness of the cardinal points
+//	ctx.arc(0, 0, 45, 0, 2 * Math.PI, false);  // With the commented part underneath, create an inner circumference
 //	ctx.strokeStyle = '#443377';
 //	ctx.stroke();
 
@@ -505,13 +494,12 @@ function updateCompass(angle, tilt) {
 	// Restore the previous drawing state
 	ctx.restore();
 }
-
-//******************************************* fine COMPASS (bussola) ***********************************************************
+//**************************** End COMPASS ****************************
 
 //*********************************************************************************************************************
-
 $(document).ready(function () {
 
+	// **************************** Start lightController ***********************************
 	var lightControllerCanvas = document.getElementById("lightcontroller_canvas");
 	lightControllerCanvas.addEventListener("touchstart", click_lightcontroller, false);
 	lightControllerCanvas.addEventListener("mousedown", click_lightcontroller, false);
@@ -525,9 +513,10 @@ $(document).ready(function () {
 		lightControllerCanvas.removeEventListener("mousemove", drag_lightcontroller, false);
 		lightControllerCanvas.removeEventListener("touchmove", drag_lightcontroller, false);
 	}, false);
-	//*******************************************************************
+
+	//-----------------------------------
 	update_lightcontroller(-0.17, -0.17);
-	//---------------------------------------------------------------------------------------------
+	// **************************** Start lightController ***********************************
 
 	init3dhop();
 	setup3dhop();
