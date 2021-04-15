@@ -272,7 +272,7 @@ function convertToGlobal(state) {
 	newstate[2] = (state[2] / presenter.sceneRadiusInv) + presenter.sceneCenter[0];
 	newstate[3] = (state[3] / presenter.sceneRadiusInv) + presenter.sceneCenter[1];
 	newstate[4] = (state[4] / presenter.sceneRadiusInv) + presenter.sceneCenter[2];
-	//distance
+	// distance
 	newstate[5] = state[5] / presenter.sceneRadiusInv;
 	return newstate;
 }
@@ -287,14 +287,11 @@ function convertToLocal(state) {
 	newstate[2] = (state[2] - presenter.sceneCenter[0]) * presenter.sceneRadiusInv;
 	newstate[3] = (state[3] - presenter.sceneCenter[1]) * presenter.sceneRadiusInv;
 	newstate[4] = (state[4] - presenter.sceneCenter[2]) * presenter.sceneRadiusInv;
-	//distance
+	// distance
 
-	if (state[5] * presenter.sceneRadiusInv == 2) {
-		newstate[5] = start;
-	}
-	else {
-		newstate[5] = state[5] * presenter.sceneRadiusInv;
-	}
+	// (state[5] * presenter.sceneRadiusInv) --> coordinate from SPOTMAKER // start --> my startDistance // 2 --> SPOTMAKER start distance
+	newstate[5] = (state[5] * presenter.sceneRadiusInv) * start / 2;
+
 	return newstate;
 }
 //****************************** End ConvertToGlobal/Local ******************************
@@ -311,7 +308,7 @@ function convertToLocal_or(state) {
 	newstate[2] = (state[2] - presenter.sceneCenter[0]) * presenter.sceneRadiusInv;
 	newstate[3] = (state[3] - presenter.sceneCenter[1]) * presenter.sceneRadiusInv;
 	newstate[4] = (state[4] - presenter.sceneCenter[2]) * presenter.sceneRadiusInv;
-	//distance
+	// distance
 	newstate[5] = state[5] * presenter.sceneRadiusInv;
 	return newstate;
 }
@@ -322,7 +319,7 @@ function onPickedSpot(id) {
 	for (var ii = 0; ii < HOTSPOTSDATA.annotations.length; ii++) {
 		var view = HOTSPOTSDATA.annotations[ii].view;
 		if (HOTSPOTSDATA.annotations[ii].name == id) {
-			presenter.animateToTrackballPosition(convertToLocal_or(view));
+			presenter.animateToTrackballPosition(convertToLocal(view));
 		}
 	}
 }
