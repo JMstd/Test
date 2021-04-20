@@ -145,9 +145,7 @@ function compassClick(event) {
 	var currpos = presenter.getTrackballPosition();
 	targetA = currpos[0] + targetA;
 	targetA = targetA<0?((targetA%360)+360):(targetA%360);
-	console.log(targetA);
 	targetA = Math.floor((targetA+45) / 90.0) * 90.0;
-	console.log(targetA);
 	currpos[0] = targetA
 	presenter.animateToTrackballPosition(currpos);
 }
