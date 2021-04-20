@@ -145,10 +145,9 @@ function compassClick(event) {
 	var currpos = presenter.getTrackballPosition();
 	targetA = currpos[0] + targetA;
 	targetA = targetA<0?((targetA%360)+360):(targetA%360);
-	if((targetA >=  315.0) || (targetA <= 45.0)) targetA = 0.0;
-	else if((targetA >=  45.0) && (targetA <= 135.0)) targetA = 90.0;
-	else if((targetA >=  135.0) && (targetA <= 225.0)) targetA = 180.0;
-	else if((targetA >=  225.0) && (targetA <= 315.0)) targetA = 270.0;
+	console.log(targetA);
+	targetA = Math.floor((targetA+45) / 90.0) * 90.0;
+	console.log(targetA);
 	currpos[0] = targetA
 	presenter.animateToTrackballPosition(currpos);
 }
