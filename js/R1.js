@@ -350,7 +350,7 @@ function setup3dhop() {
 	myscene.meshes[tipo_hs] = { url: url_hs };    // Here I declare the sphere
 	myscene.modelInstances[mdI] = {
 		mesh: md_name,
-		color: [-2.0, -2.0, -2.0]
+		color: [0.6, 0.5, 0.55]
 	};
 	myscene.spots = cont;
 	myscene.trackball = { type: TurntablePanTrackball };
