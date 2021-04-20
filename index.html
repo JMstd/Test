@@ -80,11 +80,7 @@
 				<div style=" border-radius: 5px; font-family:verdana; font-size:15px; padding:3px;">
 					<div id="compassC">
 						<canvas id="compassCanvas"
-							style="background:#555555; width:100; height:100; border:2px solid #000000;" onclick="
-							var currpos = presenter.getTrackballPosition();
-							currpos[0] = 0.0;
-							presenter.animateToTrackballPosition(currpos);
-							" width="100" height="100">
+							style="background:#555555; width:100; height:100; border:2px solid #000000;" onclick="compassClick(event);" width="100" height="100">
 						</canvas>
 					</div>
 					<br>

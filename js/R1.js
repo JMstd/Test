@@ -134,6 +134,25 @@ function log(msg) {
 	document.getElementById("log-text").scrollTop = document.getElementById("log-text").scrollHeight;
 }
 */
+//-------------------------------------------
+function compassClick(event) {
+	var dirX = (event.offsetX - (event.srcElement.width/2.0)) / event.srcElement.width;
+	var dirY = (event.offsetY - (event.srcElement.height/2.0)) / event.srcElement.height;
+	var len = Math.sqrt((dirX*dirX) + (dirY*dirY));
+	dirX = dirX / len;
+	dirY = dirY / len;	
+	var targetA = sglRadToDeg(Math.atan2(dirX,dirY));
+	var currpos = presenter.getTrackballPosition();
+	targetA = currpos[0] + targetA;
+	targetA = targetA<0?((targetA%360)+360):(targetA%360);
+	if((targetA >=  315.0) || (targetA <= 45.0)) targetA = 0.0;
+	else if((targetA >=  45.0) && (targetA <= 135.0)) targetA = 90.0;
+	else if((targetA >=  135.0) && (targetA <= 225.0)) targetA = 180.0;
+	else if((targetA >=  225.0) && (targetA <= 315.0)) targetA = 270.0;
+	currpos[0] = targetA
+	presenter.animateToTrackballPosition(currpos);
+}
+//-------------------------------------------
 //**************************** Manages the lightcontroller ****************************
 function lightSwitchL(status) {
 
