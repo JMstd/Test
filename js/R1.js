@@ -93,7 +93,7 @@ function actionsToolbar(action) {
 	else if (action == 'screenshot') presenter.saveScreenshot();
 	else if (action == 'full_on') { fullscreenSwitch(); }
 	else if (action == 'full') { fullscreenSwitch(); }
-	else if (action == 'move_up' || 'move_dawn' || 'move_right' || 'move_left') step(action);
+	else if (action == 'move_up' || 'move_down' || 'move_right' || 'move_left') step(action);
 }
 
 //**************************** Start manager of arrows movements ****************************
@@ -108,7 +108,7 @@ function step(action) {
 			my_pos[3] -= vstep;
 			presenter.animateToTrackballPosition(my_pos);
 			break;
-		case 'move_dawn':
+		case 'move_down':
 			my_pos[3] += vstep;
 			presenter.animateToTrackballPosition(my_pos);
 			break;
