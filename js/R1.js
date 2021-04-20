@@ -12,7 +12,7 @@ var stMaxT = 0;
 var _PanX = 0.0;
 var ANNOTATIONDATA = {};
 var tipo_hs = "Sphere";
-var url_hs = "3DHOP/models/singleres/sphere.ply";
+var url_hs = "models/sphere.ply";
 var HOTSPOTSDATA = {};
 
 
