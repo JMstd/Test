@@ -1,0 +1,15 @@
+{
+  "name": "RC.nxz",
+  "mdI": "RC",
+  "url": "models/RC.nxz",
+  "start": 1.10,
+  "PanX":0.0,
+  "minMaxTheta": [
+    -90.0,
+    90.0
+  ],
+  "minMaxDist":[
+    0.1,
+    3.0
+  ]
+}
