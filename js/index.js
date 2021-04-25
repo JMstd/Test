@@ -82,8 +82,7 @@ function actionsToolbar(action) {
 		}
 		presenter.enableSceneLighting(!presenter.isSceneLightingEnabled()); lightingSwitch();
 	}
-	else if (action == 'light') lightSwitchL('light');
-	else if (action == 'light_off') lightSwitchL('light_off');
+	else if (action == 'light' || action == 'light_off') lightSwitchL(action);
 	//--COLOR--	
 	else if (action == 'color' || action == 'color_on') { presenter.toggleInstanceSolidColor(HOP_ALL, true); colorSwitch(); }
 	//--COLOR--	
@@ -91,9 +90,10 @@ function actionsToolbar(action) {
 	else if (action == 'hotspot' || action == 'hotspot_on') { presenter.toggleSpotVisibility(HOP_ALL, true); presenter.enableOnHover(!presenter.isOnHoverEnabled()); hotspotSwitch(); }
 	else if (action == 'measure' || action == 'measure_on') { presenter.enableMeasurementTool(!presenter.isMeasurementToolEnabled()); measureSwitch(); }
 	else if (action == 'screenshot') presenter.saveScreenshot();
-	else if (action == 'full_on') { fullscreenSwitch(); }
-	else if (action == 'full') { fullscreenSwitch(); }
-	else if (action == 'move_up' || 'move_down' || 'move_right' || 'move_left') step(action);
+	else if (action == 'full_on' || action == 'full') { fullscreenSwitch(); }
+	else if (action == 'move_up' || action == 'move_down' || action == 'move_right' || action == 'move_left') step(action);
+	else if (action == 'North' || action == 'West' || action == 'Est' || action == 'South' || action == 'Top') cardinalPoints(action);
+
 }
 
 //**************************** Start manager of arrows movements ****************************
@@ -128,6 +128,29 @@ function step(action) {
 	}
 }
 //**************************** End manager of arrows movements ****************************
+//**************************** Start manager of cardinal points and top *******************
+function cardinalPoints(action) {
+
+	switch (action) {
+		case 'North':
+			presenter.animateToTrackballPosition([180.0, 0.0, 0.0, 0.0, 0.0, 1.10]);
+			break;
+		case 'West':
+			presenter.animateToTrackballPosition([-90.0, 0.0, 0.0, 0.0, 0.0, 1.10]);
+			break;
+		case 'Est':
+			presenter.animateToTrackballPosition([90.0, 0.0, 0.0, 0.0, 0.0, 1.10]);
+			break;
+		case 'South':
+			presenter.animateToTrackballPosition([0.0, 0.0, 0.0, 0.0, 0.0, 1.10]);
+			break;
+		case 'Top':
+			presenter.animateToTrackballPosition([0.0, 90.0, 0.0, 0.0, 0.0, 1.0]);
+			break;
+
+	}
+}
+//**************************** End manager of cardinal points and top *******************
 /*
 function log(msg) {
 	document.getElementById("log-text").innerHTML += msg + "\n";
@@ -136,16 +159,16 @@ function log(msg) {
 */
 //-------------------------------------------
 function compassClick(event) {
-	var dirX = (event.offsetX - (event.srcElement.width/2.0)) / event.srcElement.width;
-	var dirY = (event.offsetY - (event.srcElement.height/2.0)) / event.srcElement.height;
-	var len = Math.sqrt((dirX*dirX) + (dirY*dirY));
+	var dirX = (event.offsetX - (event.srcElement.width / 2.0)) / event.srcElement.width;
+	var dirY = (event.offsetY - (event.srcElement.height / 2.0)) / event.srcElement.height;
+	var len = Math.sqrt((dirX * dirX) + (dirY * dirY));
 	dirX = dirX / len;
-	dirY = dirY / len;	
-	var targetA = sglRadToDeg(Math.atan2(dirX,dirY));
+	dirY = dirY / len;
+	var targetA = sglRadToDeg(Math.atan2(dirX, dirY));
 	var currpos = presenter.getTrackballPosition();
 	targetA = currpos[0] + targetA;
-	targetA = targetA<0?((targetA%360)+360):(targetA%360);
-	targetA = Math.floor((targetA+45) / 90.0) * 90.0;
+	targetA = targetA < 0 ? ((targetA % 360) + 360) : (targetA % 360);
+	targetA = Math.floor((targetA + 45) / 90.0) * 90.0;
 	currpos[0] = targetA
 	presenter.animateToTrackballPosition(currpos);
 }

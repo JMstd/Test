@@ -73,14 +73,14 @@
 
 			<!-- Right tools -->
 			<div id="right_tolbar" style="position: fixed; right: 1%; top:0%; z-index:2;">
-				<!--style="position: fixed; right:5%; top:2%; z-index:2;"-->
 
 				<!-- Start COMPASS -->
 				<br>
 				<div style=" border-radius: 5px; font-family:verdana; font-size:15px; padding:3px;">
 					<div id="compassC">
 						<canvas id="compassCanvas"
-							style="background:#555555; width:100; height:100; border:2px solid #000000;" onclick="compassClick(event);" width="100" height="100">
+							style="background:#555555; width:100; height:100; border:2px solid #000000;"
+							onclick="compassClick(event);" width="100" height="100">
 						</canvas>
 					</div>
 					<br>
@@ -88,35 +88,21 @@
 						<tbody>
 							<tr>
 								<td></td>
-								<!---padding: 20px;  *******  [180.0, 0.0, 0.0, 0.12, 0.0, 3.0] --->
-								<td><img onclick="presenter.animateToTrackballPosition([180.0, 0.0, 0.0, 0.0, 0.0, 1.10]);"
-										class="" id="Nord" title="Nord" src="img/North.png" />
+								<td><img id="North" title="North" src="img/North.png" />
 								</td>
 								<td></td>
 							</tr>
 							<tr>
-								<!--- border-radius: 8px;"    *******  [-90.0, 0.0, 0.0, 0.12, 0.0, 3.0] ---->
-								<td><img style="cursor:hand;"
-										onclick="presenter.animateToTrackballPosition([-90.0, 0.0, 0.0, 0.0, 0.0, 1.10]);"
-										class="" id="West" title="West" src="img/West.png" />
+								<td><img id="West" title="West" src="img/West.png" />
 								</td>
-								<!-----  **************** [0.0, 90.0, -0.1, 0.0, -0.066, 2.0]-->
-								<td><img style="cursor:hand;"
-										onclick="presenter.animateToTrackballPosition([0.0, 90.0, 0.0, 0.0, 0.0, 1.0]);"
-										class="" id="Top" title="Top" src="img/Top.png" />
+								<td><img id="Top" title="Top" src="img/Top.png" />
 								</td>
-								<!-----  **************** [90.0, 0.0, 0.0, 0.12, 0.0, 3.0]-->
-								<td><img style="cursor:hand;"
-										onclick="presenter.animateToTrackballPosition([90.0, 0.0, 0.0, 0.0, 0.0, 1.10]);"
-										class="" id="Est" title="Est" src="img/East.png" />
+								<td><img id="Est" title="Est" src="img/East.png" />
 								</td>
 							</tr>
 							<tr>
 								<td></td>
-								<!-----  **************** [0.0, 0.0, 0.0, 0.12, 0.0, 3.0]-->
-								<td><img style="cursor:hand;"
-										onclick="presenter.animateToTrackballPosition([0.0, 0.0, 0.0, 0.0, 0.0, 1.10]);"
-										class="" id="South" title="South" src="img/South.png" />
+								<td><img id="South" title="South" src="img/South.png" />
 								</td>
 								<td></td>
 							</tr>
@@ -130,7 +116,6 @@
 								<td></td>
 							</tr>
 							<tr>
-
 								<td><img class="move_ left" id="move_left" title="Move Leftt" src="img/Arrow.png" />
 								</td>
 
@@ -138,10 +123,8 @@
 									<img class="move_" id="home" title="Home" src="3DHOP/skins/dark/home.png" />
 								</td>
 
-								<td><img class="move_ right" id="move_right" title="Move Right"
-										src="img/Arrow.png" />
+								<td><img class="move_ right" id="move_right" title="Move Right" src="img/Arrow.png" />
 								</td>
-
 							</tr>
 							<tr>
 								<td></td>
