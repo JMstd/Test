@@ -468,13 +468,11 @@ $(document).ready(function () {
 
 	//-----------------------------------
 	update_lightcontroller(-0.17, -0.17);
-	// **************************** Start lightController ***********************************
+	// **************************** End lightController ***********************************
 
 	init3dhop();
 	setup3dhop();
 
-	$('#move_right').css("opacity", "0.2");
-	$('#move_left').css("opacity", "0.2");
 });
 // onload occurs when all content has been loaded
 //window.onload = setup3dhop;
