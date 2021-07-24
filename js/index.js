@@ -1,19 +1,10 @@
+var ANNOTATIONDATA = {};
+var HOTSPOTSDATA = {};
 
-var start = 0;
-var md_name = "";
-var myurl = "";
-var mdI = "";
-var stMinD = 0;
-var stMaxD = 0;
 var myMinMaxTheta = [];
 var myMinMaxDist = [];
-var stMinT = 0;
-var stMaxT = 0;
-var _PanX = 0.0;
-var ANNOTATIONDATA = {};
-var tipo_hs = "Sphere";
-var url_hs = "models/sphere.ply";
-var HOTSPOTSDATA = {};
+var typeHs = "Sphere";
+var urlHS = "models/sphere.ply";
 
 
 var xmlhttp = new XMLHttpRequest();
@@ -41,18 +32,8 @@ xmlhttp.send();
 //**************************** Start setting datas from json ****************************
 
 // Model data 
-md_name = ANNOTATIONDATA.name;
-mdI = ANNOTATIONDATA.mdI;
-myurl = ANNOTATIONDATA.url;
-start = ANNOTATIONDATA.start;
-stMinT = ANNOTATIONDATA.minMaxTheta[0];
-stMaxT = ANNOTATIONDATA.minMaxTheta[1];
-stMinD = ANNOTATIONDATA.minMaxDist[0];
-stMaxD = ANNOTATIONDATA.minMaxDist[1];
-
-myMinMaxTheta.push(stMinT, stMaxT);
-myMinMaxDist.push(stMinD, stMaxD);
-_PanX = ANNOTATIONDATA.PanX;
+myMinMaxTheta.push(ANNOTATIONDATA.minMaxTheta[0], ANNOTATIONDATA.minMaxTheta[1]);
+myMinMaxDist.push(ANNOTATIONDATA.minMaxDist[0],  ANNOTATIONDATA.minMaxDist[1]);
 
 // Start hotspots data 
 var cont = {};
@@ -60,7 +41,7 @@ for (var ii = 0; ii < HOTSPOTSDATA.annotations.length; ii++) {
 	var pos = HOTSPOTSDATA.annotations[ii].position
 	var radius = HOTSPOTSDATA.annotations[ii].radius;
 	var newSpot = {
-		mesh: tipo_hs,
+		mesh: typeHs,
 		color: [0.0, 0.25, 1.0],
 		transform: {
 			matrix:
@@ -329,7 +310,7 @@ function convertToLocal(state) {
 	// distance
 
 	// (state[5] * presenter.sceneRadiusInv) --> coordinate from SPOTMAKER // start --> my startDistance // 2 --> SPOTMAKER start distance
-	newstate[5] = (state[5] * presenter.sceneRadiusInv) * start / 2;
+	newstate[5] = (state[5] * presenter.sceneRadiusInv) * ANNOTATIONDATA.start / 2;
 
 	return newstate;
 }
@@ -385,10 +366,10 @@ function setup3dhop() {
 	};
 
 	//*********************************** Start passage of data for settings ***********************************
-	myscene.meshes[md_name] = { url: myurl };
-	myscene.meshes[tipo_hs] = { url: url_hs };    // Here I declare the sphere
-	myscene.modelInstances[mdI] = {
-		mesh: md_name,
+	myscene.meshes[ANNOTATIONDATA.name] = { url: ANNOTATIONDATA.url };
+	myscene.meshes[typeHs] = { url: urlHS };    // Here I declare the sphere
+	myscene.modelInstances[ANNOTATIONDATA.mdI] = {
+		mesh: ANNOTATIONDATA.name,
 		color: [0.6, 0.5, 0.55]
 	};
 	myscene.spots = cont;
@@ -396,11 +377,11 @@ function setup3dhop() {
 	myscene.trackball.trackOptions = {
 		startPhi: 0.0,
 		startTheta: 0.0,
-		startDistance: start,
+		startDistance: ANNOTATIONDATA.start,
 		minMaxPhi: [-180, 180],
-		minMaxTheta: myMinMaxTheta,   //[stMinT, stMaxT],  // [-80.0,80.0] // Theta adjusts how much I can turn (low - high) the model about a central axis 
-		minMaxDist: myMinMaxDist,    //[stMinD, stMaxD],  //  [2.5,3.0]
-		startPanX: _PanX,
+		minMaxTheta: myMinMaxTheta,   // [-80.0,80.0] // Theta adjusts how much I can turn (low - high) the model about a central axis 
+		minMaxDist: myMinMaxDist,    //  [2.5,3.0]
+		startPanX: ANNOTATIONDATA.PanX,
 		startPanY: 0.0,
 		startPanZ: 0.0,
 		minMaxPanX: [-0.5, 0.5],
