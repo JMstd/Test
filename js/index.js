@@ -72,7 +72,7 @@ function actionsToolbar(action) {
 	else if (action == 'screenshot') presenter.saveScreenshot();
 	else if (action == 'full_on' || action == 'full') { fullscreenSwitch(); }
 	else if (action == 'move_up' || action == 'move_down' || action == 'move_right' || action == 'move_left') step(action);
-	else if (action == 'North' || action == 'West' || action == 'Est' || action == 'South' || action == 'Top') cardinalPoints(action);
+	else if (action == 'North' || action == 'West' || action == 'Est' || action == 'South' || action == 'Top') 	presenter.animateToTrackballPosition(ANNOTATIONDATA.cardinalP[action]);
 
 }
 
@@ -108,29 +108,6 @@ function step(action) {
 	}
 }
 //**************************** End manager of arrows movements ****************************
-//**************************** Start manager of cardinal points and top *******************
-function cardinalPoints(action) {
-
-	switch (action) {
-		case 'North':
-			presenter.animateToTrackballPosition([180.0, 0.0, 0.0, 0.0, 0.0, 1.10]);
-			break;
-		case 'West':
-			presenter.animateToTrackballPosition([-90.0, 0.0, 0.0, 0.0, 0.0, 1.10]);
-			break;
-		case 'Est':
-			presenter.animateToTrackballPosition([90.0, 0.0, 0.0, 0.0, 0.0, 1.10]);
-			break;
-		case 'South':
-			presenter.animateToTrackballPosition([0.0, 0.0, 0.0, 0.0, 0.0, 1.10]);
-			break;
-		case 'Top':
-			presenter.animateToTrackballPosition([0.0, 90.0, 0.0, 0.0, 0.0, 1.0]);
-			break;
-
-	}
-}
-//**************************** End manager of cardinal points and top *******************
 /*
 function log(msg) {
 	document.getElementById("log-text").innerHTML += msg + "\n";
