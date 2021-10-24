@@ -41,3 +41,12 @@
 }
 
 /********************** End move_control **********************/
+
+@media screen and (max-height: 680px) {
+
+	.shift_right {
+		margin-top: -58px;
+		margin-left: 58px;
+	}
+
+}
