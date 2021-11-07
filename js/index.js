@@ -391,9 +391,9 @@ function onTrackballUpdate(trackState) {
 	updateCompass(sglDegToRad(trackState[0]), sglDegToRad(trackState[1]));
 }
 function updateCompass(angle, tilt) {
-	$('#compassCanvas').attr('width', 100);
-	$('#compassCanvas').attr('height', 100);
-	$('#compassCanvas').css('border-radius', 50);
+	$('#compassCanvas').attr('width', 145);
+	$('#compassCanvas').attr('height', 145);
+	$('#compassCanvas').css('border-radius', 80);
 	var canv = document.getElementById("compassCanvas");
 	var ctx = canv.getContext("2d");
 	var hh = canv.height;
@@ -415,13 +415,13 @@ function updateCompass(angle, tilt) {
 	//	ctx.strokeStyle = '#443377';
 	//	ctx.stroke();
 
-	ctx.font = "28px Verdana";
+	ctx.font = "40px Verdana";
 	ctx.strokeStyle = '#ff4444';
-	ctx.strokeText("N", -10, -25);
+	ctx.strokeText("N", -13, -29);
 	ctx.strokeStyle = '#ffffff';
-	ctx.strokeText("S", -10, 45);
-	ctx.strokeText("E", 27, 10);
-	ctx.strokeText("W", -47, 10);
+	ctx.strokeText("S", -12, 55);
+	ctx.strokeText("E", 35, 13);
+	ctx.strokeText("W", -60, 13);
 
 	// Restore the previous drawing state
 	ctx.restore();
