@@ -72,7 +72,6 @@ function actionsToolbar(action) {
 	else if (action == 'screenshot') presenter.saveScreenshot();
 	else if (action == 'full_on' || action == 'full') { fullscreenSwitch(); }
 	else if (action == 'move_up' || action == 'move_down' || action == 'move_right' || action == 'move_left') step(action);
-	else if (action == 'North' || action == 'West' || action == 'Est' || action == 'South' || action == 'Top') 	presenter.animateToTrackballPosition(ANNOTATIONDATA.cardinalP[action]);
 
 }
 
