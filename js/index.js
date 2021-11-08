@@ -72,6 +72,7 @@ function actionsToolbar(action) {
 	else if (action == 'screenshot') presenter.saveScreenshot();
 	else if (action == 'full_on' || action == 'full') { fullscreenSwitch(); }
 	else if (action == 'move_up' || action == 'move_down' || action == 'move_right' || action == 'move_left') step(action);
+	else if (action == 'Top') 	presenter.animateToTrackballPosition(ANNOTATIONDATA.cardinalP[action]);
 
 }
 
@@ -140,7 +141,7 @@ function lightSwitchL(status) {
 
 		$('#lightcontroller').css('right', 14 + "%");
 		$('#lightcontroller').css('left', "auto");
-		$('#lightcontroller').css('top', ($('#right_tolbar').position().top + $('#right_tolbar').width() * 2 + 180));
+		$('#lightcontroller').css('top', ($('#right_tolbar').position().top + $('#right_tolbar').width() + 250));
 
 		presenter.enableSceneLighting('lighting_off');
 		lightingSwitch('lighting_off');
