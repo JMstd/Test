@@ -32,7 +32,7 @@ xmlhttp.send();
 
 // Model data 
 myMinMaxTheta.push(ANNOTATIONDATA.minMaxTheta[0], ANNOTATIONDATA.minMaxTheta[1]);
-myMinMaxDist.push(ANNOTATIONDATA.minMaxDist[0],  ANNOTATIONDATA.minMaxDist[1]);
+myMinMaxDist.push(ANNOTATIONDATA.minMaxDist[0], ANNOTATIONDATA.minMaxDist[1]);
 
 // Start hotspots data 
 var cont = {};
@@ -72,7 +72,8 @@ function actionsToolbar(action) {
 	else if (action == 'screenshot') presenter.saveScreenshot();
 	else if (action == 'full_on' || action == 'full') { fullscreenSwitch(); }
 	else if (action == 'move_up' || action == 'move_down' || action == 'move_right' || action == 'move_left') step(action);
-	else if (action == 'Top') 	presenter.animateToTrackballPosition(ANNOTATIONDATA.cardinalP[action]);
+	else if (action == 'Top') presenter.animateToTrackballPosition(ANNOTATIONDATA.cardinalP[action]);
+	else if (action == 'info') infoClick();
 
 }
 
@@ -108,6 +109,20 @@ function step(action) {
 	}
 }
 //**************************** End manager of arrows movements ****************************
+
+//***************************** Menage the click on info button ***************************
+
+function infoClick() {
+	if ($('iframe').css("visibility") == "visible") {
+		$('iframe').css("visibility", "hidden");
+	}
+	else {
+		$('iframe').css("visibility", "visible");
+	}
+}
+
+//*****************************************************************************************
+
 /*
 function log(msg) {
 	document.getElementById("log-text").innerHTML += msg + "\n";

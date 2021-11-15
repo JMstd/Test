@@ -42,6 +42,19 @@
 
 /********************** End move_control **********************/
 
+iframe {
+	visibility: hidden;
+	width: 70%;
+	height: 70%;
+	display: inline;
+	position: absolute;
+	z-index: 5;
+	margin-top: -45%;
+	margin-left: 15%;
+	border: 2px solid #F78204;  
+    border-radius: 25px;
+}
+
 @media screen and (max-height: 680px) {
 
 	.shift_right {
