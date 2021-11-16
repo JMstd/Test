@@ -18,7 +18,7 @@ a {
 }
 /************************************************************************************/
 body{
-    padding: 0 1.5em 1.5em 1.5em/*1.5em*/;
+    padding: 1.5em;
     background-color: #222222;
     border-radius: 25px;
     /*background: rgba(0,0,0,0.5);*/
@@ -49,22 +49,6 @@ img{
 
 ul {
     list-style-type: none;
-}
-
-#close_button{
-    position: fixed;
-    width: 1.8em;
-   /* float: right;
-    padding: 0;
-    margin: /*-1.2em*//*0.5em;
-    margin-right: -1.2em;
-    */
-    right: 0.5em;
-    top: 0.5em;
-}
-
-#close_button:hover{
-    opacity: 0.5;
 }
 
 /************************************************************************************//*
