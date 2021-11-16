@@ -21,11 +21,8 @@ body{
     padding: 1.5em;
     background-color: #222222;
     border-radius: 25px;
-    /*background: rgba(0,0,0,0.5);*/
-   /* background-color: #222222;*/
-
-
 }
+
 body > h1{ 
     font-family: "Times New Roman", Times, serif;
     color: #F78204;
@@ -38,7 +35,6 @@ body > h1{
     background-color: #FAE6CE;
     border-radius: 25px;
     padding: 1.5em;
-
 }
 
 img{
@@ -50,20 +46,6 @@ img{
 ul {
     list-style-type: none;
 }
-
-/************************************************************************************//*
-@media screen and (max-width: 600px) {
-    img{
-        width: 10%;
-    }
-}
-@media screen and (max-height: 680px) {
-    img{
-        width: 5%;
-    }
-
-}
-*/
 
 
 
