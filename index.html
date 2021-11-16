@@ -39,6 +39,9 @@
 
 <body>
 
+	<iframe id="info" src="info.html" title="info">
+	</iframe>
+
 	<div id="3dhop" class="tdhop" onmousedown="if (event.preventDefault) event.preventDefault()">
 
 		<div id="tdhlg"></div>
@@ -59,18 +62,17 @@
 				style="position:absolute; visibility:hidden;" />
 			<img id="color" title="Disable Color" src="3DHOP/skins/dark/color_on.png" /><br />
 			<!--COLOR-->
-			<img id="hotspot_on" title="Hide Hotspots" src="3DHOP/skins/dark/pin_on.png"
+			<img id="hotspot_on" class="shift_right" title="Hide Hotspots" src="3DHOP/skins/dark/pin_on.png"
 				style="position:absolute; visibility:hidden;" />
-			<img id="hotspot" title="Show Hotspots" src="3DHOP/skins/dark/pin.png" /><br />
-			<img id="screenshot" class="shift_right" title="Save Screenshot"
-				src="3DHOP/skins/dark/screenshot.png" /><br />
-			<img id="measure_on" title="Disable Measure Tool" src="3DHOP/skins/dark/measure_on.png"
+			<img id="hotspot" class="shift_right" title="Show Hotspots" src="3DHOP/skins/dark/pin.png" /><br />
+			<img id="screenshot" title="Save Screenshot" src="3DHOP/skins/dark/screenshot.png" /><br />
+			<img id="measure_on" class="shift_right" title="Disable Measure Tool" src="3DHOP/skins/dark/measure_on.png"
 				style="position:absolute; visibility:hidden;" />
-			<img id="measure" title="Enable Measure Tool" src="3DHOP/skins/dark/measure.png" /><br />
-			<img id="full_on" class="shift_right" title="Exit Full Screen" src="3DHOP/skins/dark/full_on.png"
+			<img id="measure" class="shift_right" title="Enable Measure Tool" src="3DHOP/skins/dark/measure.png" /><br />
+			<img id="full_on" title="Exit Full Screen" src="3DHOP/skins/dark/full_on.png"
 				style="position:absolute; visibility:hidden;" />
-			<img id="full" class="shift_right" title="Full Screen" src="3DHOP/skins/dark/full.png" /><br />
-			<img id="info" class="" title="Info" src="img/info_m.png" /><br />
+			<img id="full" title="Full Screen" src="3DHOP/skins/dark/full.png" /><br />
+			<img id="info" class="shift_right" title="Info" src="img/info_m.png" /><br />
 
 			<!-- Right tools -->
 			<div id="right_tolbar" style="position: fixed; right: 1%; top:0%; z-index:2;">
@@ -140,8 +142,6 @@
 
 		<canvas id="draw-canvas" style="background-image: url(3DHOP/skins/backgrounds/grey_gradient.jpg)" />
 	</div>
-	<iframe id="info" src="info.html" title="info">
-	</iframe>
 </body>
 
 </html>

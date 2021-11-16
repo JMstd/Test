@@ -49,7 +49,7 @@ iframe {
 	display: inline;
 	position: absolute;
 	z-index: 5;
-	margin-top: -45%;
+	margin-top: 5%;
 	margin-left: 15%;
 	border: 2px solid #F78204;  
     border-radius: 25px;
