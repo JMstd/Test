@@ -1,0 +1,145 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+	<!--<meta content="charset=UTF-8"/> -->
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+
+	<title>3DHOP - 3D Heritage Online Presenter</title>
+	<style type="text/css">
+		a:hover {
+			color: gray;
+			cursor: pointer;
+		}
+	</style>
+	<!--STYLESHEET-->
+	<link type="text/css" rel="stylesheet" href="3DHOP/stylesheet/3dhop.css" />
+	<link type="text/css" rel="stylesheet" href="stylesheet/extra.css" />
+	<!--SPIDERGL-->
+	<script type="text/javascript" src="3DHOP/js/spidergl.js"></script>
+	<!--JQUERY-->
+	<script type="text/javascript" src="3DHOP/js/jquery.js"></script>
+	<!--PRESENTER-->
+	<script type="text/javascript" src="3DHOP/js/presenter.js"></script>
+	<!--3D MODELS LOADING AND RENDERING-->
+	<script type="text/javascript" src="3DHOP/js/nexus.js"></script>
+	<script type="text/javascript" src="3DHOP/js/ply.js"></script>
+	<!--TRACKBALLS-->
+	<script type="text/javascript" src="3DHOP/js/trackball_sphere.js"></script>
+	<script type="text/javascript" src="3DHOP/js/trackball_turntable.js"></script>
+	<script type="text/javascript" src="3DHOP/js/trackball_turntable_pan.js"></script>
+	<script type="text/javascript" src="3DHOP/js/trackball_pantilt.js"></script>
+	<!--UTILITY-->
+	<script type="text/javascript" src="3DHOP/js/init.js"></script>
+	<script type="text/javascript" src="js/bruxelles.js"></script>
+</head>
+
+<body>
+
+	<iframe id="info" src="info.html" title="info">
+	</iframe>
+
+	<div id="3dhop" class="tdhop" onmousedown="if (event.preventDefault) event.preventDefault()">
+
+		<div id="tdhlg"></div>
+		<!-- Start Toolbar manager -->
+		<div id="toolbar">
+			<img class="move_" id="home" title="Home" src="3DHOP/skins/dark/home.png" /><br />
+			<img id="zoomin" title="Zoom In" src="3DHOP/skins/dark/zoomin.png" /><br />
+			<img id="zoomout" class="shift_right" title="Zoom Out" src="3DHOP/skins/dark/zoomout.png" /><br />
+			<img id="lighting_off" title="Enable Lighting" src="3DHOP/skins/dark/lighting_off.png"
+				style="position:absolute; visibility:hidden;" />
+			<img id="lighting" title="Disable Lighting" src="img/lighting_m.png" /><br />
+			<img id="light_off" class="shift_right" title="Disable Light Control"
+				src="3DHOP/skins/dark/lightcontrol_on.png" style="position:absolute; visibility:hidden;" />
+			<img id="light" class="shift_right" title="Enable Light Control"
+				src="3DHOP/skins/dark/lightcontrol.png" /><br />
+			<!--COLOR-->
+			<img id="color_on" title="Enable Color" src="3DHOP/skins/dark/color.png"
+				style="position:absolute; visibility:hidden;" />
+			<img id="color" title="Disable Color" src="3DHOP/skins/dark/color_on.png" /><br />
+			<!--COLOR-->
+			<img id="hotspot_on" class="shift_right" title="Hide Hotspots" src="3DHOP/skins/dark/pin_on.png"
+				style="position:absolute; visibility:hidden;" />
+			<img id="hotspot" class="shift_right" title="Show Hotspots" src="3DHOP/skins/dark/pin.png" /><br />
+			<img id="screenshot" title="Save Screenshot" src="3DHOP/skins/dark/screenshot.png" /><br />
+			<img id="measure_on" class="shift_right" title="Disable Measure Tool" src="3DHOP/skins/dark/measure_on.png"
+				style="position:absolute; visibility:hidden;" />
+			<img id="measure" class="shift_right" title="Enable Measure Tool" src="3DHOP/skins/dark/measure.png" /><br />
+			<img id="full_on" title="Exit Full Screen" src="3DHOP/skins/dark/full_on.png"
+				style="position:absolute; visibility:hidden;" />
+			<img id="full" title="Full Screen" src="3DHOP/skins/dark/full.png" /><br />
+			<img id="info" class="shift_right" title="Info" src="img/info_m.png" /><br />
+
+			<!-- Right tools -->
+			<div id="right_tolbar" style="position: fixed; right: 1%; top:0%; z-index:2;">
+
+				<!-- Start COMPASS -->
+				<br>
+				<div style=" border-radius: 5px; font-family:verdana; font-size:15px; padding:3px;">
+					<div id="compassC">
+						<canvas id="compassCanvas"
+							style="background:#555555; width:145; height:145; border:2px solid #000000;"
+							onclick="compassClick(event);" width="145" height="145">
+						</canvas>
+					</div>
+					<br>
+					<table id="mvc_table">
+						<tbody>
+
+							<!----***************** Start manager MOVE ******************-->
+							<br />
+							<tr>
+								<td></td>
+								<td>
+									<img class="move_ up" id="move_up" title="Move Up" src="img/Arrow.png" />
+								</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><img class="move_ left" id="move_left" title="Move Leftt" src="img/Arrow.png" />
+								</td>
+
+								<td>
+									<img id="Top" title="Top" src="img/Top_m.png" />
+								</td>
+
+								<td><img class="move_ right" id="move_right" title="Move Right" src="img/Arrow.png" />
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>
+									<img class="move_ down" id="move_down" title="Move Down" src="img/Arrow.png" />
+								</td>
+								<td></td>
+							</tr>
+							<!----***************** End manager MOVE ******************-->
+
+						</tbody>
+					</table>
+				</div>
+				<!-- End COMPASS -->
+
+				<!-- Light controller -->
+				<div id="lightcontroller">
+					<canvas id="lightcontroller_canvas" width="125" height="125" />
+				</div>
+
+			</div>
+
+		</div>
+		<!-- End Toolbar manager -->
+		<!---***************************************************************************************************************************************-->
+
+		<div id="measure-box" class="output-box">Measured length
+			<hr />
+			<span id="measure-output" class="output-text" onmousedown="event.stopPropagation()">0.0</span>
+		</div>
+
+		<canvas id="draw-canvas" style="background-image: url(3DHOP/skins/backgrounds/grey_gradient.jpg)" />
+	</div>
+</body>
+
+</html>
